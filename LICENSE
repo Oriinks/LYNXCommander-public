@@ -1,0 +1,238 @@
+LYNXCommander Software License
+Copyright (c) 2026 LYNXCommander Team. All rights reserved.
+
+================================================================================
+SUMMARY (informational — the binding text is below in section 1+)
+================================================================================
+
+This is a "source-available, all rights reserved" license. The full source code
+is published on GitHub for transparency, security audit, and bug reporting, but
+the software itself is NOT open source.
+
+You MAY:
+  - download and run the compiled binaries from the official LYNXCommander
+    distribution channels;
+  - read the source code on GitHub for transparency / security review;
+  - submit bug reports, suggestions, and pull requests (which, if accepted, are
+    incorporated under this same license).
+
+You MAY NOT, without prior written permission from the copyright holder:
+  - redistribute the binaries or the source code;
+  - modify the software or create derivative works;
+  - reverse-engineer, decompile, or disassemble the compiled binaries
+    (except where this restriction is prohibited by applicable law);
+  - use the software, in whole or in part, in any commercial product or
+    service that competes with LYNXCommander;
+  - remove or alter any copyright, trademark, or other proprietary notices.
+
+================================================================================
+1. DEFINITIONS
+================================================================================
+
+"Software" means the LYNXCommander application, including its source code,
+compiled binaries, installers, assets, configuration files, and documentation,
+distributed under this license.
+
+"Copyright Holder" means the LYNXCommander Team and its successors-in-interest,
+acting through the project maintainer identified in CONTACT (see README.md).
+
+"You" means the individual or legal entity exercising rights under this license.
+
+"Official Distribution Channel" means (i) the GitHub repository at
+https://github.com/Oriinks/LYNXCommander and (ii) the LYNXCommander download
+page operated by the Copyright Holder.
+
+================================================================================
+2. GRANT OF LICENSE
+================================================================================
+
+Subject to Your full compliance with this license, the Copyright Holder grants
+You a worldwide, royalty-free, non-exclusive, non-transferable, revocable
+license to:
+
+(a) download, install, and run the compiled binaries of the Software, solely
+    for Your own personal, non-commercial use, on devices owned or controlled
+    by You;
+
+(b) view, study, and audit the source code of the Software as published in the
+    Official Distribution Channel, for the sole purposes of transparency,
+    security review, and educational understanding;
+
+(c) submit issue reports, suggestions, and pull requests to the Copyright
+    Holder. Any contribution You submit may be incorporated into the Software
+    under this license, and You assign to the Copyright Holder all rights
+    necessary for that incorporation (or, where assignment is not permitted by
+    law, grant an irrevocable, perpetual, worldwide, royalty-free license to
+    use, modify, sublicense, and distribute the contribution as part of the
+    Software).
+
+================================================================================
+3. RESTRICTIONS
+================================================================================
+
+Except as expressly permitted in Section 2, You MAY NOT:
+
+(a) redistribute, sublicense, rent, lease, lend, sell, or otherwise transfer
+    the Software (in source or binary form) to any third party;
+
+(b) modify, adapt, translate, port, or create derivative works based on the
+    Software, or any part of it;
+
+(c) reverse-engineer, decompile, disassemble, or attempt to derive the source
+    code of any compiled component of the Software, except to the extent that
+    such activity is expressly permitted by applicable mandatory law
+    notwithstanding this restriction (e.g., for interoperability purposes
+    where the law of Your jurisdiction grants such a right);
+
+(d) use the Software, in whole or in part, to develop, market, or operate any
+    product or service that competes with the Software;
+
+(e) use the Software to harm, exploit, or interfere with the operation of any
+    third-party computer system, network, or game client, including but not
+    limited to the Star Citizen game client and its servers;
+
+(f) use the Software in a manner that violates the terms of service of any
+    third-party platform with which the Software interacts (notably the
+    Cloud Imperium Games / Roberts Space Industries terms of service);
+
+(g) remove, obscure, or alter any copyright notice, trademark, attribution,
+    license text, or other proprietary marking present in the Software.
+
+================================================================================
+4. OWNERSHIP
+================================================================================
+
+The Software is licensed, not sold. The Copyright Holder retains all right,
+title, and interest in and to the Software, including all intellectual
+property rights. No rights are granted to You other than those expressly set
+forth in this license.
+
+================================================================================
+5. THIRD-PARTY COMPONENTS
+================================================================================
+
+The Software incorporates third-party libraries and assets distributed under
+their own licenses. Those components remain subject to their respective
+licenses and are not relicensed under this license.
+
+Authoritative list — the .csproj files in the source repository
+(https://github.com/Oriinks/LYNXCommander) are the canonical source of
+truth for current dependency versions. As of the version of this license,
+the following NuGet packages are used:
+
+  Overlay (LynxOverlay.csproj):
+    - .NET 8 Windows runtime (Microsoft Corporation, MIT)
+    - Microsoft.Windows.SDK.NET (Microsoft Corporation, MIT)
+    - NAudio (Mark Heath et al., MIT)
+    - MumbleSharp (Martin Evans, MIT)
+    - Concentus (Logan Stromberg, MIT — managed C# port of libopus)
+    - Velopack (Caelan Sayler / Velopack contributors, MIT)
+    - Microsoft.Web.WebView2 (Microsoft Corporation, BSD-style)
+    - Microsoft.AspNetCore.SignalR.Client (Microsoft Corporation, MIT)
+    - System.IdentityModel.Tokens.Jwt (Microsoft Corporation, MIT)
+    - Serilog, Serilog.Sinks.File, Serilog.Sinks.Console,
+      Serilog.Enrichers.Process, Serilog.Enrichers.Thread (Serilog
+      Contributors, Apache 2.0)
+
+  Backend (LynxApi.csproj):
+    - .NET 8 ASP.NET Core runtime (Microsoft Corporation, MIT)
+    - Microsoft.AspNetCore.Authentication.JwtBearer (Microsoft Corporation, MIT)
+    - System.IdentityModel.Tokens.Jwt (Microsoft Corporation, MIT)
+    - Microsoft.EntityFrameworkCore + EntityFrameworkCore.Design
+      (Microsoft Corporation, MIT)
+    - Pomelo.EntityFrameworkCore.MySql (Pomelo Foundation, MIT)
+    - AspNet.Security.OAuth.Discord (.NET Foundation, Apache 2.0)
+    - zeroc.ice.net (ZeroC Inc., GPLv2 with Linking Exception — Mumble
+      management interface bridge only)
+
+  Installer (LynxInstaller.csproj):
+    - .NET 8 Windows runtime (Microsoft Corporation, MIT)
+
+Star Citizen and Roberts Space Industries are trademarks of Cloud
+Imperium Games Corp. The Software is an unofficial third-party tool
+and is not affiliated with, endorsed by, or sponsored by Cloud Imperium
+Games.
+
+This list is provided in good faith and may lag minor dependency version
+bumps; the .csproj files in the repository are always the most accurate
+source.
+
+================================================================================
+6. NO WARRANTY
+================================================================================
+
+THE SOFTWARE IS PROVIDED "AS IS" AND "AS AVAILABLE", WITHOUT WARRANTY OF ANY
+KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NONINFRINGEMENT, AND
+ACCURACY OF DATA. THE ENTIRE RISK ARISING OUT OF THE USE OR PERFORMANCE OF
+THE SOFTWARE REMAINS WITH YOU.
+
+================================================================================
+7. LIMITATION OF LIABILITY
+================================================================================
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL THE
+COPYRIGHT HOLDER OR ANY CONTRIBUTOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT
+LIMITED TO LOSS OF DATA, LOSS OF PROFITS, LOSS OF GAME ACCOUNTS, OR SERVICE
+INTERRUPTION) ARISING IN ANY WAY OUT OF THE USE OF, OR INABILITY TO USE, THE
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+Nothing in this license excludes or limits liability for (i) death or personal
+injury caused by negligence, (ii) fraud or fraudulent misrepresentation, or
+(iii) any other liability that cannot be excluded by applicable mandatory law.
+
+================================================================================
+8. TERMINATION
+================================================================================
+
+This license is effective until terminated. Your rights under this license
+terminate automatically and without notice if You fail to comply with any
+of its terms. Upon termination, You must cease all use of the Software and
+destroy all copies in Your possession or control.
+
+Sections 3 (Restrictions), 4 (Ownership), 6 (No Warranty), 7 (Limitation of
+Liability), 9 (Governing Law), and 10 (General) survive termination.
+
+================================================================================
+9. GOVERNING LAW AND JURISDICTION
+================================================================================
+
+This license is governed by and construed in accordance with the laws of the
+Republic of Poland, without regard to its conflict-of-laws rules. The courts
+of the Republic of Poland competent for the place of residence of the
+Copyright Holder shall have exclusive jurisdiction over any dispute arising
+out of or in connection with this license, except where applicable mandatory
+consumer-protection law of Your habitual residence grants You a different
+jurisdiction.
+
+If You are a consumer (as defined under Polish or EU consumer-protection law),
+nothing in this license deprives You of mandatory consumer rights granted by
+the law of Your habitual residence.
+
+================================================================================
+10. GENERAL
+================================================================================
+
+(a) If any provision of this license is held to be unenforceable, the
+    remaining provisions shall remain in full force and effect.
+
+(b) The Copyright Holder's failure to enforce any provision of this license
+    shall not constitute a waiver of that or any other provision.
+
+(c) This license constitutes the entire agreement between You and the
+    Copyright Holder concerning the Software, and supersedes any prior
+    oral or written communications.
+
+(d) The Copyright Holder reserves the right to release future versions of
+    the Software under different terms (including, without limitation,
+    commercial, paid, or subscription-based terms). Such a change does not
+    affect the terms applicable to versions released prior to the change.
+
+================================================================================
+CONTACT
+================================================================================
+
+For licensing inquiries, including requests for commercial use, redistribution,
+or other rights not granted herein, please contact the Copyright Holder via
+the support channels listed in README.md.
