@@ -38,9 +38,9 @@ acting through the project maintainer identified in CONTACT (see README.md).
 
 "You" means the individual or legal entity exercising rights under this license.
 
-"Official Distribution Channel" means (i) the GitHub repository at
-https://github.com/Oriinks/LYNXCommander and (ii) the LYNXCommander download
-page operated by the Copyright Holder.
+"Official Distribution Channel" means (i) the public assets repository at
+https://github.com/Oriinks/LYNXCommander-public and (ii) the LYNXCommander
+download page operated by the Copyright Holder.
 
 ================================================================================
 2. GRANT OF LICENSE
@@ -116,7 +116,7 @@ their own licenses. Those components remain subject to their respective
 licenses and are not relicensed under this license.
 
 Authoritative list — the .csproj files in the source repository
-(https://github.com/Oriinks/LYNXCommander) are the canonical source of
+(https://github.com/Oriinks/LYNXCommander-public) are the canonical source of
 truth for current dependency versions. As of the version of this license,
 the following NuGet packages are used:
 

@@ -59,22 +59,38 @@ Interesują nas wszystkie problemy, które mogą:
 - W pliku `.pfx`/`.key` znalezionym w repozytorium (NIE POWINNO BYĆ — patrz
   `.gitignore`).
 - **Manipulacja URI protokołem `lynxcommander://`** — np. nakłonienie
-  użytkownika do kliknięcia złośliwego linka, który zapisuje sfałszowany
-  token JWT do AuthService Aplikacji.
-  Aktualny mechanizm `TryConsumeDeepLinkToken` w `App.OnStartup`
-  weryfikuje *tylko* strukturę JWT (3 segmenty oddzielone kropką) i
-  prefix schematu — **nie sprawdza signature, expiry ani issuer claim**.
-  Mitigacje obecne: token bez ważnego podpisu zostanie odrzucony przez
-  backend przy następnym wywołaniu API (HTTP 401). Mitigacje brakujące
-  (kandydat na issue): sprawdzenie `iss` claim że token pochodzi z naszego
-  backendu; idealnie — zastąpienie głównego JWT krótkożyjącym nonce
-  wymienianym na sesję dopiero w wywołaniu API.
+  użytkownika do kliknięcia złośliwego linka, który próbuje zapisać sfałszowany
+  token do aplikacji. **Status: ZAADRESOWANE w wersji 1.1.0+.**
+  Po refactorze auth (patrz [`docs/AUTH_ARCHITECTURE.md`](docs/AUTH_ARCHITECTURE.md)
+  sekcja 4.5) URI scheme zawiera **jednorazowy kod** (one-time code), a nie
+  pełny JWT. Kod jest single-use, ważny 60 sekund, i sam w sobie nie autoryzuje
+  niczego — overlay wymienia go przez <code>POST /api/auth/exchange-code</code>
+  na pełną parę tokenów (access JWT + refresh). Atakujący który przechwyci URI
+  ma okno 60s na wymianę kodu — i nawet jeśli mu się uda, dostanie sesję
+  z innym IP/UA niż prawowity user, co zostanie wykryte w audit logach.
+  Stary mechanizm <code>TryConsumeDeepLinkToken</code> (akceptujący JWT w URI)
+  jest deprecated i zostanie usunięty po <code>LegacyTokensEnabled=false</code>.
 - **Leak tokena JWT w event log Windows** przez deep link `lynxcommander://`.
-  Token w URL pojawia się w Windows Event Log (ShellExecute invocation),
-  historii przeglądarki i potencjalnie logach AV. Lokalnie privileged
-  proces mógłby go wyciągnąć. Mitigacja: deep link działa w obecnej formie
-  tylko z **zaufanej maszyny** użytkownika (token i tak idzie z localStorage
-  przeglądarki na tej maszynie). Docelowo: nonce zamiast głównego JWT.
+  **Status: ZAADRESOWANE.** Po refactorze auth w URI scheme znajduje się tylko
+  one-time code (single-use, 60s lifetime), a nie pełny JWT. Wyciek code'a
+  z Event Log nie daje atakującemu działającego dostępu — code wygasa zanim
+  ktokolwiek zdąży go znaleźć w logach.
+- **Refresh token reuse / kradzież** — atakujący który przechwyci refresh token
+  (np. przez kradzież DPAPI store'a na zainfekowanej maszynie usera) próbuje
+  go użyć w <code>/api/auth/refresh</code>. **Mitigacja: Refresh Token Rotation
+  (RTR).** Każde odświeżenie tokenu unieważnia poprzedni — jeśli atakujący
+  użyje skradzionego refresh-a, prawowity user przy następnej próbie refresh-u
+  trafi na "reuse detected" i CAŁA rodzina tokenów (atakującego i usera) zostanie
+  unieważniona. Obaj muszą się zalogować ponownie, ale dostęp atakującego jest
+  natychmiastowo przerwany.
+- **CSRF z innej strony WWW** — atakujący nakłania zalogowanego usera do
+  wejścia na stronę, która submituje formularz na <code>lynxcommander.pl/api/...</code>.
+  **Mitigacja: double-submit cookie pattern.** Backend wystawia cookie
+  <code>lynx_csrf</code> + frontend musi dokleić wartość do nagłówka
+  <code>X-CSRF-Token</code>. Atakująca strona nie ma JS-owego dostępu do
+  cookie usera (cross-origin), więc nie może wystawić poprawnego nagłówka.
+  Dodatkowo wszystkie cookies sesyjne mają <code>SameSite=Strict</code>,
+  co blokuje cross-site requesty na poziomie przeglądarki.
 
 ### Przykłady **poza zakresem** (mile widziane do issue / PR, ale nie security):
 - Błędy UI, crashe niezwiązane z bezpieczeństwem.

@@ -303,7 +303,7 @@ kombinowania z plikami.
 | **E-mail support** | Sprawy licencyjne / komercyjne / wrażliwe |
 | **W aplikacji** | Settings → "ℹ️ O APLIKACJI" — wszystkie linki w jednym miejscu |
 
-Dokładne adresy znajdziesz w [README na GitHubie](https://github.com/Oriinks/LYNXCommander#kontakt-i-wsparcie).
+Dokładne adresy znajdziesz w [README na GitHubie](https://github.com/Oriinks/LYNXCommander-public#kontakt-i-wsparcie).
 
 ---
 
@@ -328,6 +328,30 @@ regulaminu Cloud Imperium Games (CIG) / Roberts Space Industries (RSI):
   2031).
 - ✅ Zgłoszona do **Microsoft Defender Security Intelligence (WDSI)**
   i **Cloud Imperium Games**.
+
+### Skrócony fingerprint LYNXCommander
+
+Aby zweryfikować, że pobrana wersja **naprawdę pochodzi od nas** (a nie od
+podszywacza), porównaj ten skrócony fingerprint certyfikatu — pierwsze 4
+grupy thumbprint-u SHA-1:
+
+```
+D990 1F2B ACA1 831A
+```
+
+Publikujemy go w **3 niezależnych miejscach**:
+
+1. Tu, w tym przewodniku (GUIDE.md w repo i pod `/guide` na stronie).
+2. Strona pobierania https://lynxcommander.pl/download (widget "FINGERPRINT
+   LYNXCommander").
+3. Pinned message na oficjalnym Discordzie LYNX.
+
+Jeśli wszystkie trzy miejsca pokazują **tę samą wartość** — masz mocne
+potwierdzenie, że nikt nie podszywa się pod naszą aplikację (atakujący
+musiałby przejąć jednocześnie GitHub, domenę i Discord). W aplikacji
+możesz też kliknąć **Settings → ☕ Wsparcie / O Aplikacji → "Weryfikuj
+integralność instalacji"** — odpalimy automatyczne sprawdzenie SHA-256
+binarki względem manifestu wydania.
 
 **Jeśli mimo wszystko CIG kiedyś zinterpretuje narzędzie taktycznego
 overlay jako problematyczne — końcowa odpowiedzialność za zgodność z ich
@@ -359,6 +383,6 @@ Powodzenia w lotach! 🚀
 ---
 
 _Wersja źródłowa tego dokumentu w repo:
-[`GUIDE.md`](https://github.com/Oriinks/LYNXCommander/blob/main/GUIDE.md).
+[`GUIDE.md`](https://github.com/Oriinks/LYNXCommander-public/blob/main/GUIDE.md).
 W razie wątpliwości lub pytań — skontaktuj się z nami przez Discord lub
 GitHub Issues._

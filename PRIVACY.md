@@ -41,7 +41,25 @@ w sekcji 8.
 |---|---|---|---|
 | Handle RSI (Star Citizen) | Wpisujesz w aplikacji / OAuth | Identyfikacja gracza, mapowanie do organizacji | Backend LYNXCommander |
 | Discord User ID i nick | OAuth Discord (jeśli używasz logowania) | Identyfikacja gracza, członkostwo w grupie | Backend LYNXCommander |
-| Token JWT | Generowany przez backend po zalogowaniu | Utrzymanie sesji | **Lokalnie** w `%APPDATA%\LynxOverlay\token.dat`, szyfrowany DPAPI (klucz Twojego konta Windows) |
+| Token JWT (access) | Generowany przez backend po zalogowaniu | Utrzymanie sesji (15 min lifetime) | **Lokalnie**: w aplikacji desktop — `%LOCALAPPDATA%\LynxOverlay\tokens.dat`, szyfrowany DPAPI; w przeglądarce — HttpOnly cookie `lynx_access` |
+| Refresh token | Generowany razem z access tokenem | Odświeżanie wygasłego access (30 dni lifetime) | **Lokalnie** jak access; w bazie backendu trzymamy tylko **SHA-256 hash** (nie sam token) |
+
+### 2.1.1. Co jest w bazie po stronie backendu (tabela `RefreshTokens`)
+
+Po wdrożeniu refresh token rotation (RTR) backend musi trzymać metadane sesji
+do detekcji kompromitacji tokena. W bazie znajdują się:
+
+| Pole | Cel | Retention |
+|---|---|---|
+| Hash refresh tokena (SHA-256) | Walidacja przy każdym /refresh | 7 dni po wygaśnięciu (revoked tokeny zachowujemy do audytu) |
+| `Family` (GUID sesji) | Grupowanie tokenów z jednego logowania, family-wide revoke przy detekcji reuse | Jak wyżej |
+| `ClientType` ("web" / "overlay") | Telemetria, przyszły UI "aktywne sesje" | Jak wyżej |
+| `UserAgent` (pierwsze 512 znaków) | Audit log — pomoc przy "kto i kiedy się zalogował" | 7 dni po wygaśnięciu |
+| `IpAddress` | Audit log — wykrywanie podejrzanych logowań | 7 dni po wygaśnięciu, anonimizujemy po incydencie |
+
+**NIE** trzymamy plaintext'u refresh tokena — atakujący który zdobędzie dump
+naszej bazy nie będzie w stanie zalogować się jako Ty (bez znajomości oryginalnego
+plaintext'u). Cleanup worker (background service) usuwa wygasłe rekordy raz na dobę.
 
 ### 2.2. Dane gameplay (przesyłane między klientem a backendem)
 

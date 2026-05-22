@@ -228,7 +228,7 @@ dotyczyć nowych wersji, do których będziesz mógł zaktualizować się dobrow
 Aplikację możesz pobrać **wyłącznie** z:
 
 - oficjalnej strony LYNXCommander (link w [README.md](README.md#pobieranie)),
-- repozytorium GitHub: https://github.com/Oriinks/LYNXCommander.
+- publiczne repozytorium GitHub: https://github.com/Oriinks/LYNXCommander-public.
 
 **Nie pobieraj** Aplikacji z innych źródeł — mogą zawierać złośliwe modyfikacje.
 Zawsze weryfikuj sumę kontrolną SHA256 (instrukcja w README).
