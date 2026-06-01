@@ -1,6 +1,6 @@
 # Polityka prywatności — LYNXCommander
 
-_Wersja: 1.0 · Data wejścia w życie: 2026-05-17_
+_Wersja: 1.1 · Data wejścia w życie: 2026-06-02_
 
 Niniejszy dokument opisuje, jakie dane LYNXCommander zbiera, gdzie je przetwarza,
 komu je przekazuje i jak długo je przechowuje. Pisaliśmy go po polsku i w prostym
@@ -21,6 +21,11 @@ W razie pytań — kontakt znajdziesz w [README.md](README.md#kontakt-i-wsparcie
   konta Windows** (DPAPI). Nie wysyłamy go nigdzie poza naszym API.
 - **Telemetria błędów** (crash, wyjątki) idzie na nasze kanały Discord — tylko
   Twoje logi techniczne, bez treści rozmów Mumble.
+- **Monitor dziennika gry (`Game.log`)** jest **domyślnie wyłączony (opt-in)**.
+  Po włączeniu czytamy **lokalnie** plik tekstowy, który **sama gra** zapisuje na
+  dysku, i synchronizujemy w drużynie tylko **wyprowadzony stan** (party / lider /
+  „powalony" / „w menu"). **Lokalizacja** wymaga **drugiej, osobnej zgody**.
+  Nie czytamy pamięci procesu gry. Szczegóły: sekcja 2.6.
 
 ---
 
@@ -125,6 +130,39 @@ w aplikacji organizacji Star Citizen z oficjalnego API Roberts Space Industries
 - Nie pobieramy żadnych prywatnych danych konta RSI.
 - Te dane są **publicznie dostępne** na profilu Spectrum każdego gracza.
 
+### 2.6. Monitorowanie dziennika gry (`Game.log`)
+
+**Funkcja opcjonalna, domyślnie WYŁĄCZONA (opt-in).** Włączasz ją ręcznie w
+ustawieniach (`Monitorowanie logów gry`), a udostępnianie lokalizacji to **drugi,
+osobny przełącznik** (`Udostępnianie lokalizacji z logów`).
+
+Star Citizen sam zapisuje na dysku plik tekstowy `Game.log` (dziennik
+deweloperski). Po Twojej zgodzie Aplikacja **czyta ten plik lokalnie na bieżąco**
+i wyprowadza z niego stan, który synchronizuje w obrębie Twojej drużyny (tak jak
+statusy załogi):
+
+| Co wyprowadzamy z `Game.log` | Co trafia do drużyny (backend → członkowie party) | Wymaga zgody |
+|---|---|---|
+| Czy jesteś w party w grze / kto jest party-liderem | tak/nie + flaga lidera | Monitorowanie logów |
+| Stan „powalony" (INCAP) | flaga zdrowia (0 = OK, 1 = INCAP) | Monitorowanie logów |
+| „W menu" (gracz w menu głównym gry) | flaga statusu „MENU" | Monitorowanie logów |
+| Bieżąca lokalizacja (stacja / planeta / „w przestrzeni") | czytelna nazwa miejsca | **Osobna** zgoda (udostępnianie lokalizacji) |
+| Region + numer serwera sesji | **przechowywane wyłącznie lokalnie**, na razie **nie wysyłane** (przyszła funkcja za uprawnieniami) | — |
+
+**Czego NIE robimy:**
+- **Nie czytamy pamięci procesu gry** — to wyłącznie odczyt pliku tekstowego,
+  który gra sama tworzy (dostęp do niego ma każda aplikacja na Twoim koncie
+  Windows). Brak `ReadProcessMemory`, brak hooków (zobacz sekcję 7).
+- **Nie wysyłamy surowej treści `Game.log`** na serwer — tylko wyprowadzone,
+  wymienione wyżej flagi/nazwy.
+- **Nie udostępniamy lokalizacji bez Twojej osobnej zgody.** Po jej wyłączeniu
+  pole lokalizacji jest puste.
+- Gdy wyłączysz monitorowanie, serwis natychmiast przestaje czytać plik i czyści
+  zsynchronizowany stan.
+
+Cel: świadomość sytuacyjna drużyny (gdzie są członkowie, kto jest powalony, kto
+w menu) — bez ręcznego raportowania.
+
 ## 3. Komu udostępniamy dane
 
 | Odbiorca | Co dostaje | Podstawa prawna |
@@ -179,6 +217,10 @@ Dla pełnej transparentności i zgodności z regulaminem Star Citizen:
 - OCR to **bierne odczytywanie ekranu** (tak samo jak OBS / Windows accessibility
   reader) — z technicznego punktu widzenia bliżej mu do screenshota niż do
   hooka anti-cheata.
+- **Monitorowanie `Game.log` (opcjonalne) to odczyt PLIKU TEKSTOWEGO**, który
+  sama gra zapisuje na dysku — **nie** czytanie pamięci procesu. Każda aplikacja
+  na Twoim koncie Windows ma do tego pliku dostęp; my tylko go „tailujemy" (jak
+  `tail -f`) i parsujemy tekst.
 
 ## 8. Twoje prawa (RODO)
 
@@ -215,5 +257,6 @@ w aplikacji.
 
 ---
 
-_Ostatnia aktualizacja: 2026-05-17. Wersja źródłowa: w repo GitHub w pliku
+_Ostatnia aktualizacja: 2026-06-02 (v1.1 — dodano sekcję 2.6: opcjonalny monitor
+dziennika gry `Game.log`). Wersja źródłowa: w repo GitHub w pliku
 [`PRIVACY.md`](PRIVACY.md)._

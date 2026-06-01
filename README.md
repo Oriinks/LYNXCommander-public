@@ -112,6 +112,11 @@ Cloud Imperium Games / Roberts Space Industries (CIG/RSI). Konkretnie:
   zawartość.
 - ✅ Mumble client jest **standardowym** klientem VoIP — głos płynie przez
   serwer Mumble, nie przez grę.
+- ✅ **Opcjonalny** (opt-in) monitor dziennika gry czyta **plik tekstowy
+  `Game.log`**, który **sama gra zapisuje na dysku** — to zwykły odczyt pliku
+  (jak `tail -f`), **nie** czytanie pamięci procesu. Służy do synchronizacji
+  stanu drużyny (lokalizacja, INCAP, lider, „w menu"). Szczegóły danych:
+  [`PRIVACY.md` sekcja 2.6](PRIVACY.md#26-monitorowanie-dziennika-gry-gamelog).
 
 Aplikacja została zgłoszona do:
 

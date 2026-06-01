@@ -56,6 +56,12 @@ Interesują nas wszystkie problemy, które mogą:
   rotujemy okresowo, ale przyspieszymy jeśli będzie nadużycie).
 - DPAPI token można odczytać przez inny proces.
 - OCR pipeline można nakłonić do wysłania ekranu na inny serwer.
+- **Monitor `Game.log`** (opcjonalny, opt-in) — np. nakłonienie aplikacji do
+  odczytu pliku spoza katalogu Star Citizen (path traversal w ustawieniu ścieżki),
+  albo wstrzyknięcie spreparowanych linii do `Game.log` w celu sfałszowania
+  stanu innego gracza w drużynie (np. fałszywy „lider"/lokalizacja). Czytamy
+  wyłącznie plik tekstowy, nie pamięć procesu — ale zgłoszenia o nadużyciu
+  parsowania są w zakresie.
 - W pliku `.pfx`/`.key` znalezionym w repozytorium (NIE POWINNO BYĆ — patrz
   `.gitignore`).
 - **Manipulacja URI protokołem `lynxcommander://`** — np. nakłonienie

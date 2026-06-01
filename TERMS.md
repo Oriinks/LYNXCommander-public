@@ -1,6 +1,6 @@
 # Regulamin korzystania z LYNXCommander
 
-_Wersja: 1.0 · Data wejścia w życie: 2026-05-17_
+_Wersja: 1.1 · Data wejścia w życie: 2026-06-02_
 
 Niniejszy regulamin ("**Regulamin**") określa zasady korzystania z aplikacji
 **LYNXCommander** (dalej "**Aplikacja**"), będącej narzędziem wspomagającym
@@ -33,7 +33,10 @@ Star Citizen. Zapewnia:
   napotkanych graczy jako "swój / wróg / neutralny" (IFF) na podstawie bazy
   organizacji,
 - narzędzie do raportowania znalezisk górniczych do prywatnego kanału
-  Discord drużyny.
+  Discord drużyny,
+- **opcjonalny** odczyt dziennika gry (`Game.log`) do synchronizacji stanu
+  drużyny — lokalizacja, stan „powalony" (INCAP), party-lider, „w menu" —
+  funkcja włączana ręcznie (opt-in), szczegóły w sekcji 4.
 
 ## 3. Czego Aplikacja **NIE robi** (kluczowe oświadczenie dot. anti-cheat)
 
@@ -56,6 +59,12 @@ czynności:
 - (g) **nie udostępnia** żadnej przewagi mechanicznej (aimbot, wallhack,
   speedhack) — Aplikacja **nie ma** dostępu do stanu gry poza tym, co
   wyświetla się na Twoim ekranie.
+
+**Uwaga nt. dziennika gry (`Game.log`):** opcjonalny odczyt `Game.log` (sekcja 4)
+to czytanie **pliku tekstowego, który sama gra zapisuje na dysku** (dziennik
+deweloperski Star Citizena). To **nie** jest czytanie pamięci procesu [punkt (c)],
+nie jest wstrzykiwaniem kodu ani ingerencją w grę — to wyłącznie bierny odczyt
+pliku, do którego dostęp ma każda aplikacja na Twoim koncie Windows.
 
 Mimo powyższych zabezpieczeń, **finalna odpowiedzialność za zgodność
 z regulaminem gry leży po Twojej stronie**. CIG może zmienić swoje zasady
@@ -87,6 +96,14 @@ stronie. Zobacz sekcję 8.
   (zablokować dostęp Aplikacji do `lynxcommander.pl/updates/`); pamiętaj
   jednak, że pozostając na starszej wersji rezygnujesz z aktualnych poprawek
   bezpieczeństwa.
+- **Monitor dziennika gry (`Game.log`)** — *funkcja opcjonalna, domyślnie
+  WYŁĄCZONA (opt-in)*. Po włączeniu Aplikacja czyta na bieżąco plik tekstowy
+  `Game.log`, który **sama gra** zapisuje na dysku, i wyprowadza z niego stan do
+  synchronizacji w drużynie: czy jesteś w party, kto jest party-liderem, stan
+  „powalony" (INCAP), bieżącą lokalizację (stacja / planeta / „w przestrzeni")
+  oraz „w menu". Udostępnianie **lokalizacji** wymaga **osobnej** zgody
+  (drugi przełącznik). To bierny odczyt pliku tekstowego — **nie** pamięci procesu
+  (zobacz sekcję 3). Szczegóły danych: [Polityka Prywatności](PRIVACY.md#26-monitorowanie-dziennika-gry-gamelog).
 - **Telemetria błędów**: opisana w [Polityce Prywatności](PRIVACY.md#23-telemetria-i-logi).
 
 ### 4.1. Operacje wykonywane przez instalator na systemie Windows
@@ -267,5 +284,5 @@ Jeśli nie akceptujesz nowej wersji — odinstaluj Aplikację.
 
 ---
 
-_Ostatnia aktualizacja: 2026-05-17. Wersja źródłowa: w repo GitHub w pliku
-[`TERMS.md`](TERMS.md)._
+_Ostatnia aktualizacja: 2026-06-02 (v1.1 — dodano monitor dziennika gry `Game.log`).
+Wersja źródłowa: w repo GitHub w pliku [`TERMS.md`](TERMS.md)._
