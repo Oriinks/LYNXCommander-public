@@ -108,6 +108,29 @@ uprawnień.
 **Webhooki Discord są publicznymi URL-ami "write-only"** — kanały są prywatne dla
 zespołu LYNX. Nikt z zewnątrz nie czyta ich zawartości poza moderatorami.
 
+### 2.3.1. Telemetria skanera (IFF i Rock Scanner)
+
+Aby poprawiać **dokładność i skuteczność** rozpoznawania (OCR + dopasowanie nazw/sygnatur),
+backend zapisuje **ustrukturyzowane dane skanów** w bazie (tabele `IffScanLog`/`IffScanMatch`/
+`IffScanColorWord`/`IffScanFeedback` oraz `RockScanLog`/`RockScanMatch`):
+
+| Dane | Dokąd | Cel |
+|---|---|---|
+| Tekst odczytany przez OCR (do 2000 znaków) | Baza backendu | Retrospekcja i symulacja progów dopasowania |
+| Dopasowane nicki (IFF) wraz z klasyfikacją, similarity, użytym progiem, źródłem | Baza backendu | Strojenie skuteczności rozpoznawania znajomy/wróg |
+| Wykryte kolory nazw z HUD | Baza backendu | Korelacja koloru z relacją (jakość wskazówek) |
+| Twoja ocena wyniku (✓ trafione / ✗ błędne) | Baza backendu | Pomiar realnej dokładności (prawda bazowa) |
+| Minerały, sygnatury, ilości SCU (Rock) | Baza backendu | Poprawa rozpoznawania skał |
+| Wersja aplikacji, identyfikator skanu, Twój identyfikator konta | Baza backendu | Analiza per-wersja, łączenie zrzutu z danymi |
+
+- **Zrzut ekranu skanu** trafia **wyłącznie** na prywatny webhook Discord zespołu (jak w 2.3),
+  a jego nazwa pliku to identyfikator skanu — pozwala technicznie powiązać obraz z wierszem danych.
+- **Dane osób trzecich:** tekst OCR może zawierać **publiczne handle innych graczy** widoczne na
+  Twoim ekranie w grze. Są to dane publiczne (widoczne w grze i na profilu Spectrum), używane
+  wyłącznie do analizy skuteczności narzędzia, nieudostępniane na zewnątrz.
+- **Możesz to wyłączyć:** Ustawienia → „Telemetria skanera". Po wyłączeniu skany nie są zapisywane
+  do analizy (na Discord nadal może iść sam zrzut, zależnie od osobnego ustawienia logowania).
+
 ### 2.4. Komunikacja głosowa (Mumble)
 
 LYNXCommander zawiera klienta protokołu **Mumble** (open source, https://www.mumble.info).
