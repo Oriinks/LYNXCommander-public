@@ -169,8 +169,15 @@ statusy załogi):
 | Czy jesteś w party w grze / kto jest party-liderem | tak/nie + flaga lidera | Monitorowanie logów |
 | Stan „powalony" (INCAP) | flaga zdrowia (0 = OK, 1 = INCAP) | Monitorowanie logów |
 | „W menu" (gracz w menu głównym gry) | flaga statusu „MENU" | Monitorowanie logów |
-| Bieżąca lokalizacja (stacja / planeta / „w przestrzeni") | czytelna nazwa miejsca | **Osobna** zgoda (udostępnianie lokalizacji) |
-| Region + numer serwera sesji | **przechowywane wyłącznie lokalnie**, na razie **nie wysyłane** (przyszła funkcja za uprawnieniami) | — |
+| Bieżąca lokalizacja (stacja / planeta / „w przestrzeni") | czytelna nazwa miejsca — widoczna tylko dla ról z uprawnieniem `intel:view_locations` | **Osobna** zgoda (udostępnianie lokalizacji) |
+| Region + numer serwera sesji (shard) | region + adres serwera — widoczne tylko dla ról z uprawnieniem `intel:view_server_details` | Monitorowanie logów |
+
+Dostęp do dwóch ostatnich pozycji jest **podwójnie ograniczony**: musisz je udostępnić
+(zgoda po Twojej stronie) **i** odbiorca musi mieć odpowiednie uprawnienie nadane przez
+zarząd organizacji. Sama nazwa lokacji jest tłumaczona z kodu z logu na czytelną nazwę
+przy użyciu słownika pobieranego z serwera — nie wysyłamy w tym celu żadnych dodatkowych
+danych o Tobie; gdy kod jest nam nieznany, wysyłany jest **wyłącznie sam kod lokacji**
+(np. `RR_JP_NyxPyro`), bez powiązania z Twoim kontem, żeby dopisać właściwą nazwę.
 
 **Czego NIE robimy:**
 - **Nie czytamy pamięci procesu gry** — to wyłącznie odczyt pliku tekstowego,
