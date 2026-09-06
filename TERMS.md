@@ -1,6 +1,6 @@
 # Regulamin korzystania z LYNXCommander
 
-_Wersja: 1.1 · Data wejścia w życie: 2026-06-02_
+_Wersja: 1.2 · Data wejścia w życie: 2026-09-06_
 
 Niniejszy regulamin ("**Regulamin**") określa zasady korzystania z aplikacji
 **LYNXCommander** (dalej "**Aplikacja**"), będącej narzędziem wspomagającym
@@ -49,13 +49,13 @@ czynności:
 - (b) **nie wstrzykuje** żadnego kodu, DLL-ek ani hooków do procesu gry,
 - (c) **nie czyta pamięci** procesu Star Citizen (`ReadProcessMemory` itp.),
 - (d) **nie wysyła** syntetycznego inputu (klawiatury / myszy / pada) do okna
-  gry. Funkcja "Anti-AFK", która wcześniej symulowała wciśnięcia klawiszy,
-  została **całkowicie usunięta** z Aplikacji w wersji 1.0 z tego powodu,
+  gry — **z jednym wyjątkiem opisanym w sekcji 3a poniżej** (funkcja Anti-AFK,
+  domyślnie wyłączona, wymagająca osobnego potwierdzenia),
 - (e) **nie automatyzuje** żadnej akcji w grze (strzelanie, miningowanie, lot,
   zaznaczanie celi w grze — Aplikacja jedynie wyświetla informację OBOK gry,
   na overlay-u),
-- (f) **nie omija** anti-cheat-a, BattlEye, EAC ani żadnego innego systemu
-  detekcji,
+- (f) **nie omija** i nie próbuje oszukać anti-cheat-a, BattlEye, EAC ani żadnego
+  innego systemu detekcji — z zastrzeżeniem sekcji 3a,
 - (g) **nie udostępnia** żadnej przewagi mechanicznej (aimbot, wallhack,
   speedhack) — Aplikacja **nie ma** dostępu do stanu gry poza tym, co
   wyświetla się na Twoim ekranie.
@@ -70,6 +70,44 @@ Mimo powyższych zabezpieczeń, **finalna odpowiedzialność za zgodność
 z regulaminem gry leży po Twojej stronie**. CIG może zmienić swoje zasady
 w dowolnym momencie i interpretacja "narzędzia trzeciego" jest po ich
 stronie. Zobacz sekcję 8.
+
+## 3a. Wyjątek: funkcja Anti-AFK (od wersji 1.2)
+
+**To jest jedyne miejsce, w którym Aplikacja wysyła cokolwiek do gry.** Piszemy
+o tym osobno i wprost, zamiast chować w liście funkcji, bo dotyczy Twojego konta.
+
+### Co robi
+
+Włączona funkcja "Anti-AFK" wysyła do systemu Windows syntetyczne wciśnięcia
+klawiszy **A** i **D** (ruch w bok) w losowanych odstępach, żeby Star Citizen nie
+uznał Cię za nieaktywnego i nie rozłączył.
+
+### Dlaczego to problem
+
+Star Citizen jest chroniony przez Easy Anti-Cheat. Wysyłanie syntetycznego inputu
+do chronionej gry jest **automatyzacją i narusza regulamin CIG/RSI**. Grozi za to
+zablokowanie konta Star Citizen — wraz ze wszystkim, co masz na nim kupione.
+
+**Używasz tej funkcji wyłącznie na własną odpowiedzialność.** Autorzy Aplikacji
+nie ponoszą odpowiedzialności za żadne działania CIG wobec Twojego konta.
+
+### Jak jest zabezpieczona
+
+- jest **domyślnie wyłączona**,
+- jej stan **nie jest zapisywany** — po każdym uruchomieniu Aplikacji startuje
+  wyłączona, więc nie da się jej mieć włączonej „od zawsze",
+- pierwsze włączenie wymaga potwierdzenia **osobnego okna z ostrzeżeniem**,
+  którego nie da się ominąć skrótem klawiszowym,
+- w przyszłych wersjach zostanie ukryta za uprawnieniem i nie będzie dostępna
+  dla wszystkich.
+
+### Historia
+
+Funkcja istniała przed wersją 1.0, została **usunięta** w wersji 1.0 właśnie ze
+względu na zgodność z EAC, i **wróciła** w wersji 1.2 jako opcja świadomie
+włączana przez gracza. Nie ukrywamy tej zmiany: poprzednie wersje niniejszego
+Regulaminu deklarowały, że funkcji nie ma i nie będzie. Ta deklaracja przestała
+być prawdziwa i dlatego Regulamin został zmieniony.
 
 ## 4. Co Aplikacja **robi** (lista funkcjonalności)
 
