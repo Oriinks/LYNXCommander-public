@@ -1,12 +1,12 @@
 # Polityka prywatności — LYNXCommander
 
-_Wersja: 1.1 · Data wejścia w życie: 2026-06-02_
+_Wersja: 1.2 · Data wejścia w życie: 2026-09-16_
 
 Niniejszy dokument opisuje, jakie dane LYNXCommander zbiera, gdzie je przetwarza,
 komu je przekazuje i jak długo je przechowuje. Pisaliśmy go po polsku i w prostym
 języku, żeby był zrozumiały dla wszystkich graczy.
 
-W razie pytań — kontakt znajdziesz w [README.md](README.md#kontakt-i-wsparcie).
+W razie pytań napisz na **dominik.borylo@gmail.com**.
 
 ---
 
@@ -26,13 +26,17 @@ W razie pytań — kontakt znajdziesz w [README.md](README.md#kontakt-i-wsparcie
   dysku, i synchronizujemy w drużynie tylko **wyprowadzony stan** (party / lider /
   „powalony" / „w menu"). **Lokalizacja** wymaga **drugiej, osobnej zgody**.
   Nie czytamy pamięci procesu gry. Szczegóły: sekcja 2.6.
+- **Twoje dane są pod ręką:** w profilu (sekcja „Twoje dane") pobierzesz komplet danych
+  konta jednym kliknięciem i tam też **usuniesz konto** — bez pisania do nas. Sekcja 8.
+- **Organizacje widzą tylko swoich członków.** Gracz bez organizacji jest niewidoczny dla
+  innych — widzą go wyłącznie osoby, które sam dodał do znajomych. Sekcja 2.7.
 
 ---
 
 ## 1. Kto jest administratorem danych
 
-Administratorem danych jest **LYNXCommander Team** (zespół projektu, dane
-kontaktowe w [README.md](README.md#kontakt-i-wsparcie)).
+Administratorem danych jest **LYNXCommander Team** — zespół prowadzący projekt.
+Kontakt w sprawach danych osobowych: **dominik.borylo@gmail.com**.
 
 Dane są przetwarzane zgodnie z RODO (Rozporządzenie Parlamentu Europejskiego
 i Rady (UE) 2016/679, dalej "RODO"). Twoje prawa wynikające z RODO opisane są
@@ -203,6 +207,29 @@ danych o Tobie; gdy kod jest nam nieznany, wysyłany jest **wyłącznie sam kod 
 Cel: świadomość sytuacyjna drużyny (gdzie są członkowie, kto jest powalony, kto
 w menu) — bez ręcznego raportowania.
 
+### 2.7. Organizacje, znajomi i widoczność
+
+Z LYNXCommandera korzysta wiele organizacji naraz. Każda widzi **wyłącznie własne dane**:
+skład, operacje, kontrakty, misje, pokoje głosowe i słowniki innej organizacji są dla niej
+niedostępne.
+
+| Kto | Co widzi o Tobie |
+|---|---|
+| Członkowie Twojej organizacji | nick, awatar, rolę, status online, statusy w pokojach, a przy zgodach z sekcji 2.6 — stan z dziennika gry i (dla uprawnionych) lokalizację |
+| Właściciel i zarząd organizacji | powyższe oraz Twoje podanie rekrutacyjne (treść, handle RSI), jeśli je złożyłeś |
+| Twoi znajomi (osoby, które dodałeś i które Cię dodały) | nick, awatar, status online, skrót Twojej organizacji |
+| Organizacje sojusznicze | tylko to, co Twoja organizacja świadomie im udostępniła (np. kanał głosowy) |
+| Wszyscy odwiedzający stronę | nazwa i herb organizacji — wyłącznie gdy organizacja sama się na to zgodziła |
+
+**Gracz bez organizacji** nie jest widoczny dla nikogo poza swoimi znajomymi.
+Znajomość wymaga zgody obu stron; każda strona może ją zakończyć w dowolnej chwili.
+Zaproszenie wysyła się po dokładnym nicku — lista znajomych nie pozwala przeglądać kont.
+
+**Właściciel organizacji** decyduje o jej wyglądzie, publicznej wizytówce i sojuszach, może
+przekazać organizację innemu członkowi albo ją usunąć. Po usunięciu organizacji wszyscy
+członkowie stają się graczami bez organizacji, a dane operacyjne organizacji przestają być
+dostępne dla kogokolwiek.
+
 ## 3. Komu udostępniamy dane
 
 | Odbiorca | Co dostaje | Podstawa prawna |
@@ -227,7 +254,9 @@ w menu) — bez ręcznego raportowania.
 
 | Dane | Czas przechowywania |
 |---|---|
-| Dane konta (handle, Discord ID) | Do momentu usunięcia konta lub żądania usunięcia |
+| Dane konta (handle, Discord ID) | Do momentu usunięcia konta (w profilu) lub żądania usunięcia |
+| Twój wkład we wspólną historię (kontrakty, oceny, przebiegi misji, wpisy w dziennikach pokoi) | Tak długo jak historia organizacji — po usunięciu konta **bez Twojego nicku**, z podpisem „Usunięte konto" |
+| Znajomości, podania rekrutacyjne, hangar, sesje | Do usunięcia przez Ciebie albo usunięcia konta |
 | Logi sesji gameplay | 30 dni od ostatniej aktywności |
 | Cache profili graczy z RSI | 90 dni od ostatniego widzenia / odświeżenia |
 | Telemetria błędów na Discord | Wg polityki retencji kanału Discord (max 1 rok, zwykle krócej) |
@@ -249,10 +278,13 @@ w menu) — bez ręcznego raportowania.
 Dla pełnej transparentności i zgodności z regulaminem Star Citizen:
 
 - **NIE czytamy pamięci procesu Star Citizen.** Brak `ReadProcessMemory`,
-  brak DLL injection, brak hooków.
-- **NIE wysyłamy syntetycznego inputu** (klawiatury / myszy) do okna gry.
-  Funkcja "Anti-AFK", która wcześniej to robiła, została **całkowicie usunięta**
-  z aplikacji w celu zgodności z regulaminem CIG.
+  brak DLL injection, brak hooków w procesie gry. Skróty klawiszowe (np. push-to-talk)
+  działają przez systemowe hooki Windows, które **wyłącznie odczytują**, czy klawisz
+  jest wciśnięty — nie zapisują wpisywanego tekstu, nie wysyłają go nigdzie i nie
+  zmieniają tego, co trafia do gry.
+- **NIE wysyłamy syntetycznego inputu** do okna gry — z jednym wyjątkiem: opcjonalna
+  funkcja „Anti-AFK", domyślnie wyłączona i włączana świadomie przez gracza, opisana
+  w Regulaminie (sekcja 3a).
 - **NIE modyfikujemy** klienta gry, plików gry, ani żadnej części silnika.
 - OCR to **bierne odczytywanie ekranu** (tak samo jak OBS / Windows accessibility
   reader) — z technicznego punktu widzenia bliżej mu do screenshota niż do
@@ -275,8 +307,26 @@ Masz prawo:
 - (g) wycofania zgody w dowolnym momencie (bez wpływu na legalność
   przetwarzania sprzed wycofania).
 
-Aby skorzystać z któregoś z praw, napisz na adres kontaktowy z README.md —
-odpowiemy w ciągu 30 dni.
+**Bez pisania do nas** — w aplikacji internetowej, w profilu, sekcja „Twoje dane":
+
+- **Pobierz moje dane** — plik JSON z kompletem danych, które backend trzyma o Twoim
+  koncie: profil, organizacja, sesje (typ klienta, adres IP, daty), znajomi, hangar,
+  podania, kontrakty i oceny, udział w misjach i operacjach, wpisy w dziennikach pokoi,
+  skany i zgłoszone błędy nakładki. To realizuje prawo dostępu (a) i przenoszenia (e).
+- **Usuń konto** — natychmiast i nieodwracalnie usuwamy: powiązanie z Discordem, nick,
+  awatar, tytuł, hangar, znajomych, sesje, podania, zaproszenia, członkostwo w
+  organizacji i w pokojach oraz rejestrację na serwerze głosowym. Historia, którą
+  współtworzyłeś z innymi (kontrakty, oceny, przebiegi misji), zostaje, bo należy także
+  do nich — ale **bez Twojego nicku**. Telemetria traci powiązanie z Twoim kontem.
+  Ponowne zalogowanie tym samym kontem Discord zakłada nowe, puste konto.
+  Jeśli jesteś właścicielem organizacji, najpierw przekaż ją innemu członkowi albo ją usuń
+  (Ustawienia organizacji). To realizuje prawo do usunięcia (c).
+- Sprostowanie (b): nick, specjalizację i hangar zmieniasz w profilu.
+
+Pozostałe prawa (ograniczenie, sprzeciw) oraz wszystko, czego nie da się zrobić w aplikacji,
+realizujemy na prośbę wysłaną na **dominik.borylo@gmail.com** — odpowiemy w ciągu 30 dni.
+Pliki nakładki na Twoim komputerze (`%APPDATA%\LYNXCommander`) usuwasz sam,
+odinstalowując aplikację.
 
 Masz też prawo wnieść skargę do **Prezesa Urzędu Ochrony Danych Osobowych**
 (https://uodo.gov.pl).
@@ -297,6 +347,6 @@ w aplikacji.
 
 ---
 
-_Ostatnia aktualizacja: 2026-06-02 (v1.1 — dodano sekcję 2.6: opcjonalny monitor
-dziennika gry `Game.log`). Wersja źródłowa: w repo GitHub w pliku
+_Ostatnia aktualizacja: 2026-09-16 (v1.2 — samoobsługowy eksport i usunięcie konta,
+sekcja 2.7: organizacje, znajomi i widoczność; v1.1 — sekcja 2.6: monitor `Game.log`). Wersja źródłowa: w repo GitHub w pliku
 [`PRIVACY.md`](PRIVACY.md)._
