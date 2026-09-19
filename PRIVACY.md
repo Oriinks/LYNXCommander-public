@@ -1,12 +1,14 @@
 # Polityka prywatności — LYNXCommander
 
-_Wersja: 1.2 · Data wejścia w życie: 2026-09-16_
+_Wersja: 1.2 · Data wejścia w życie: 2026-09-16 · Aktualizacja: 2026-09-19 (administrator danych, kanał kontaktu)_
 
 Niniejszy dokument opisuje, jakie dane LYNXCommander zbiera, gdzie je przetwarza,
 komu je przekazuje i jak długo je przechowuje. Pisaliśmy go po polsku i w prostym
 języku, żeby był zrozumiały dla wszystkich graczy.
 
-W razie pytań napisz na **dominik.borylo@gmail.com**.
+W razie pytań napisz do nas przez **formularz kontaktowy** na stronie
+(lynxcommander.pl/kontakt) — zgłoszenie trafia do nas z datą wpłynięcia,
+więc nic nie ginie w skrzynce.
 
 ---
 
@@ -35,8 +37,13 @@ W razie pytań napisz na **dominik.borylo@gmail.com**.
 
 ## 1. Kto jest administratorem danych
 
-Administratorem danych jest **LYNXCommander Team** — zespół prowadzący projekt.
-Kontakt w sprawach danych osobowych: **dominik.borylo@gmail.com**.
+Administratorem danych jest **Oriinks** — osoba prowadząca projekt LYNXCommander.
+
+Kontakt w sprawach danych osobowych: **formularz na stronie**
+(lynxcommander.pl/kontakt), rodzaj sprawy „Moje dane osobowe (RODO)".
+Formularz jest dostępny **bez logowania** — także wtedy, gdy konto zostało już
+usunięte albo nie da się na nie zalogować. Każde zgłoszenie dostaje datę
+wpłynięcia, od której liczymy termin odpowiedzi.
 
 Dane są przetwarzane zgodnie z RODO (Rozporządzenie Parlamentu Europejskiego
 i Rady (UE) 2016/679, dalej "RODO"). Twoje prawa wynikające z RODO opisane są
@@ -324,7 +331,8 @@ Masz prawo:
 - Sprostowanie (b): nick, specjalizację i hangar zmieniasz w profilu.
 
 Pozostałe prawa (ograniczenie, sprzeciw) oraz wszystko, czego nie da się zrobić w aplikacji,
-realizujemy na prośbę wysłaną na **dominik.borylo@gmail.com** — odpowiemy w ciągu 30 dni.
+realizujemy na prośbę z **formularza kontaktowego** (lynxcommander.pl/kontakt,
+rodzaj sprawy „Moje dane osobowe (RODO)") — odpowiemy w ciągu 30 dni.
 Pliki nakładki na Twoim komputerze (`%APPDATA%\LYNXCommander`) usuwasz sam,
 odinstalowując aplikację.
 

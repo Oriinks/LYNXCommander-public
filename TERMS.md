@@ -6,7 +6,9 @@ Niniejszy regulamin ("**Regulamin**") określa zasady korzystania z aplikacji
 **LYNXCommander** (dalej "**Aplikacja**"), będącej narzędziem wspomagającym
 graczy Star Citizen. Korzystając z Aplikacji, akceptujesz Regulamin w całości.
 
-W razie pytań — kontakt znajdziesz w [README.md](README.md#kontakt-i-wsparcie).
+Usługę prowadzi **Oriinks**. W razie pytań napisz przez **formularz kontaktowy**
+na stronie (lynxcommander.pl/kontakt); sprawy techniczne opisane są też
+w [README.md](README.md#kontakt-i-wsparcie).
 
 ---
 
