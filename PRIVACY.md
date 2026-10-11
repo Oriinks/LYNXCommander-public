@@ -113,7 +113,7 @@ uprawnień.
 | Logi wyjątków aplikacji (stacktrace) | Automatycznie przy crashu / wyjątku | Discord webhook (kanał techniczny LYNX) | Diagnostyka błędów |
 | Post-mortem BSOD/freeze | Po nieczystym ubiciu procesu, przy następnym starcie | Discord webhook | Wykrywanie problemów stabilności |
 | ZIP z logami (manualny przycisk "Wyślij raport") | Tylko kiedy świadomie klikniesz | Discord webhook | Wsparcie techniczne |
-| Automatyczny raport błędu (typ wyjątku, komunikat, stacktrace, wersja aplikacji) | Automatycznie, gdy w aplikacji wystąpi błąd | Serwer LYNX (baza telemetrii) | Wykrywanie błędów, o których nikt nie zgłasza, i porównywanie stabilności wydań |
+| Automatyczny raport błędu (typ wyjątku, komunikat, stacktrace, wersja aplikacji) | Automatycznie, gdy w aplikacji wystąpi błąd (domyślnie włączone; wyłączysz w Ustawienia → Diagnostyka; kto miał je wyłączone we wcześniejszych wersjach, dostaje raz pytanie) | Serwer LYNX (baza telemetrii) | Wykrywanie błędów, o których nikt nie zgłasza, i porównywanie stabilności wydań |
 | Końcówka logu dołączona do zgłoszenia błędu | Tylko gdy wysyłasz zgłoszenie z zaznaczonym polem „Dołącz logi diagnostyczne" (domyślnie zaznaczone, możesz odznaczyć) | Serwer LYNX → zgłoszenie w OpenProject | Ustalenie przyczyny zgłoszonego problemu |
 | `mumble_debug.txt` | Lokalnie, zawsze | `%APPDATA%\LynxOverlay\` lub katalog aplikacji | Debug Mumble (rotowany lokalnie, nigdzie nie wysyłany automatycznie) |
 | Settings (preferencje overlay) | Lokalnie | `%APPDATA%\LynxOverlay\settings.json` | Twoje preferencje, niewysyłane na serwer |
