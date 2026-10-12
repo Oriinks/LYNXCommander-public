@@ -77,6 +77,10 @@ Bez tokena pierwsze logowanie zwróci błąd `missing_invite` lub
 `invalid_invite`. Po pierwszej pomyślnej autoryzacji Twoje konto Discord
 jest zapamiętane — kolejne logowania **nie wymagają** już tokena.
 
+Masz już konto, ale bez organizacji? Otwórz link zaproszenia i zaloguj się
+przez niego jeszcze raz — konto zostanie dopisane do organizacji, która
+wystawiła link. Konta, które już należy do organizacji, link nie przenosi.
+
 ---
 
 ## 3. Krok 1 — Pierwsze logowanie na stronie
