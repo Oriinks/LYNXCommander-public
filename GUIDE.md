@@ -121,7 +121,7 @@ W instalatorze:
    przed akceptacją).
 2. Kliknij **"ZAINSTALUJ"**.
 
-Instalator pobiera aplikację, konfiguruje zaufanie cert (bez UAC — wszystko
+Instalator pobiera aplikację, sprawdza jej podpis cyfrowy (bez UAC — wszystko
 dzieje się w tle) i uruchamia LYNX Commander automatycznie. Całość ~30 sekund.
 
 > 💡 Plik instalatora jest dostępny **tylko po zalogowaniu** — nie krąży
@@ -154,10 +154,9 @@ W obu przypadkach token sesyjny jest zapisywany lokalnie i szyfrowany
 kluczem Twojego konta Windows. **Kolejne uruchomienia są automatyczne**
 — bez logowania.
 
-> 💡 **Nie zobaczysz prośby o instalację certyfikatu** — installer wgrał
-> go już wcześniej. Jeśli z jakiegoś powodu cert nie został wgrany
-> (np. ręcznie skopiowałeś folder aplikacji), aplikacja zapyta jednorazowo
-> przy starcie. Wystarczy kliknąć "Tak" → UAC → gotowe.
+> 💡 **Aplikacja nie prosi o instalację żadnego certyfikatu.** Jeśli starsza
+> wersja instalatora dodała nasz certyfikat do zaufanych w Windows, możesz go
+> usunąć przyciskiem w Ustawienia → O aplikacji.
 
 ---
 

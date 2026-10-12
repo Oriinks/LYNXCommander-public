@@ -54,13 +54,15 @@ i skontaktuj się z nami (sekcja [Kontakt](#kontakt-i-wsparcie)).
 
 ## Certyfikat
 
-Aplikacja przy pierwszym uruchomieniu prosi o instalację wewnętrznego
-certyfikatu CA do magazynu zaufanych wydawców Windows. Robi to skrypt
-`InstallCert.ps1` (wymaga uprawnień administratora — jednorazowo).
+Binarki LYNXCommander są podpisane naszym certyfikatem (self-signed,
+CN=LYNXCommander Project). **Ani instalator, ani aplikacja nie dodają go do
+zaufanych certyfikatów Windows** — od 2026-10-12 nie prosimy o to w ogóle.
+Instalator przed uruchomieniem pobranego pliku sam sprawdza jego podpis
+i odcisk certyfikatu, a pliku z innym podpisem nie uruchomi.
 
-Cel: redukcja fałszywych ostrzeżeń SmartScreen i kompatybilność z systemami
-anty-cheat klienta gry, zanim wprowadzimy pełny podpis Authenticode (zobacz
-[ścieżkę rozwoju w SECURITY.md](SECURITY.md)).
+Jeśli starsza wersja dodała nasz certyfikat do zaufanych (*Zaufane główne
+urzędy certyfikacji* albo *Zaufani wydawcy*), usuniesz go przyciskiem
+w Ustawienia → O aplikacji albo ręcznie w `certmgr.msc`.
 
 ### Thumbprint do weryfikacji
 
@@ -89,11 +91,11 @@ przejąć GitHub + domenę + Discord jednocześnie).
 (Cert ważny: 2026-05-17 → 2031-05-17. Self-signed, CN=LYNXCommander Project. Klucz prywatny
 trzymany poza repozytorium w GitHub Actions Secrets.)
 
-Możesz sprawdzić po instalacji w `certmgr.msc` →
-*Zaufane główne urzędy certyfikacji* → szukaj wystawcy *LYNXCommander*.
+Sprawdzisz to sam: prawy przycisk na pliku → *Właściwości* → *Podpisy cyfrowe*
+→ *Szczegóły* → *Wyświetl certyfikat* → *Szczegóły* → *Odcisk palca*.
 
-Jeśli aplikacja prosi o instalację certyfikatu z **innym** thumbprintem —
-**nie zgadzaj się**, to nie jest oficjalna wersja LYNXCommander.
+Jeśli plik ma podpis z **innym** thumbprintem albo nie ma go wcale —
+**nie uruchamiaj go**, to nie jest oficjalna wersja LYNXCommander.
 
 ## Bezpieczeństwo i Anti-cheat
 

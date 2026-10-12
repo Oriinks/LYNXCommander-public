@@ -1,6 +1,6 @@
 # Polityka prywatności — LYNXCommander
 
-_Wersja: 1.2 · Data wejścia w życie: 2026-09-16 · Aktualizacja: 2026-09-19 (administrator danych, kanał kontaktu)_
+_Wersja: 1.3 · Data wejścia w życie: 2026-09-16 · Aktualizacja: 2026-10-12 (koniec wysyłki na Discorda, paczki diagnostyczne na naszym serwerze, przypięty certyfikat serwera głosowego, usunięte Anti-AFK)_
 
 Niniejszy dokument opisuje, jakie dane LYNXCommander zbiera, gdzie je przetwarza,
 komu je przekazuje i jak długo je przechowuje. Pisaliśmy go po polsku i w prostym
@@ -21,8 +21,11 @@ więc nic nie ginie w skrzynce.
   graczy w Twoim kanale. **Nie nagrywamy** rozmów.
 - **Token uwierzytelniający** trzymamy **lokalnie i zaszyfrowany kluczem Twojego
   konta Windows** (DPAPI). Nie wysyłamy go nigdzie poza naszym API.
-- **Telemetria błędów** (crash, wyjątki) idzie na nasze kanały Discord — tylko
-  Twoje logi techniczne, bez treści rozmów Mumble.
+- **Telemetria błędów** (crash, wyjątki) i ręczne paczki diagnostyczne trafiają
+  **wyłącznie na nasz serwer**. Przed wysyłką usuwamy z nich tokeny, nazwę Twojego
+  konta Windows i nazwę komputera. Aplikacja **nie wysyła niczego na Discorda**
+  i nie zawiera żadnych adresów webhooków. Zrzuty ekranu skanów **nie opuszczają**
+  Twojego komputera.
 - **Monitor dziennika gry (`Game.log`)** jest **domyślnie wyłączony (opt-in)**.
   Po włączeniu czytamy **lokalnie** plik tekstowy, który **sama gra** zapisuje na
   dysku, i synchronizujemy w drużynie tylko **wyprowadzony stan** (party / lider /
@@ -85,7 +88,7 @@ plaintext'u). Cleanup worker (background service) usuwa wygasłe rekordy raz na 
 | Aktualny kanał Mumble (party / lobby) | Auto-join / przełączanie kanałów głosowych |
 | Trafienia OCR — **tylko sparsowane handle'e graczy** | Klasyfikacja IFF (swój / wróg) na podstawie bazy organizacji |
 | Manualne oznaczenia (np. "to jest wróg") | Wzbogacanie cache'a graczy |
-| Skany skał (mining tool) | Logowanie znalezisk na kanale Discord (zarząd zrzutek) |
+| Skany skał (mining tool) — rozpoznany tekst i wynik dopasowania | Rozpoznawanie minerałów i poprawa dokładności skanera (sekcja 2.3.1) |
 
 **Czego NIE przesyłamy:**
 - Surowych zrzutów ekranu / pikselowych snapshotów. OCR działa lokalnie,
@@ -110,20 +113,25 @@ uprawnień.
 
 | Dane | Kiedy | Dokąd | Cel |
 |---|---|---|---|
-| Logi wyjątków aplikacji (stacktrace) | Automatycznie przy crashu / wyjątku | Discord webhook (kanał techniczny LYNX) | Diagnostyka błędów |
-| Post-mortem BSOD/freeze | Po nieczystym ubiciu procesu, przy następnym starcie | Discord webhook | Wykrywanie problemów stabilności |
-| ZIP z logami (manualny przycisk "Wyślij raport") | Tylko kiedy świadomie klikniesz | Discord webhook | Wsparcie techniczne |
+| Informacja o nieczystym zamknięciu (wersja aplikacji, system, ilość pamięci, końcówka logu) | Przy następnym starcie po nieczystym ubiciu procesu, jeśli raporty błędów są włączone | Serwer LYNX (baza telemetrii) | Wykrywanie problemów stabilności |
+| Paczka diagnostyczna ZIP (logi aplikacji, ustawienia bez sekretów, podstawowe dane systemu) | Tylko kiedy świadomie klikniesz „Wyślij raport” | Serwer LYNX (przechowywana 90 dni) | Wsparcie techniczne |
 | Automatyczny raport błędu (typ wyjątku, komunikat, stacktrace, wersja aplikacji) | Automatycznie, gdy w aplikacji wystąpi błąd (domyślnie włączone; wyłączysz w Ustawienia → Diagnostyka; kto miał je wyłączone we wcześniejszych wersjach, dostaje raz pytanie) | Serwer LYNX (baza telemetrii) | Wykrywanie błędów, o których nikt nie zgłasza, i porównywanie stabilności wydań |
 | Końcówka logu dołączona do zgłoszenia błędu | Tylko gdy wysyłasz zgłoszenie z zaznaczonym polem „Dołącz logi diagnostyczne" (domyślnie zaznaczone, możesz odznaczyć) | Serwer LYNX → zgłoszenie w OpenProject | Ustalenie przyczyny zgłoszonego problemu |
 | `mumble_debug.txt` | Lokalnie, zawsze | `%APPDATA%\LynxOverlay\` lub katalog aplikacji | Debug Mumble (rotowany lokalnie, nigdzie nie wysyłany automatycznie) |
 | Settings (preferencje overlay) | Lokalnie | `%APPDATA%\LynxOverlay\settings.json` | Twoje preferencje, niewysyłane na serwer |
 
-**Webhooki Discord są publicznymi URL-ami "write-only"** — kanały są prywatne dla
-zespołu LYNX. Nikt z zewnątrz nie czyta ich zawartości poza moderatorami.
+**Od wersji z 2026-10-12 aplikacja nie wysyła niczego na Discorda.** Wszystkie raporty
+trafiają na nasz serwer. Gdy pojawi się nowy błąd albo paczka, nasz system monitoringu
+(Grafana) wysyła zespołowi na prywatny kanał krótkie powiadomienie, bez treści logów.
+
+**Co usuwamy przed wysyłką** (raporty, końcówki logów i paczki ZIP): tokeny, hasła, klucze
+API, adresy webhooków, nazwę Twojego konta Windows (także w ścieżkach `C:\Users\...`)
+i nazwę komputera. Do paczki **nie dołączamy** zrzutu pamięci (minidump); zostaje on
+tylko na Twoim dysku. Paczki diagnostyczne może pobrać wyłącznie administrator.
 
 **Automatyczne raporty błędów** zawierają wyłącznie dane techniczne: typ wyjątku,
 komunikat, ślad stosu, nazwę modułu i wersję aplikacji. Przed wysyłką usuwamy z nich
-tokeny, hasła, klucze API i adresy webhooków. Powtórki tego samego błędu są zliczane
+tokeny, hasła, klucze API, adresy webhooków, nazwę konta Windows i nazwę komputera. Powtórki tego samego błędu są zliczane
 i wysyłane zbiorczo, a liczba różnych błędów raportowanych w jednej sesji jest ograniczona —
 raport nie służy do śledzenia Twojej aktywności, tylko do wykrycia usterki. To samo
 dotyczy końcówki logu dołączanej do zgłoszenia: jest redagowana z sekretów i przycinana,
@@ -144,13 +152,14 @@ backend zapisuje **ustrukturyzowane dane skanów** w bazie (tabele `IffScanLog`/
 | Minerały, sygnatury, ilości SCU (Rock) | Baza backendu | Poprawa rozpoznawania skał |
 | Wersja aplikacji, identyfikator skanu, Twój identyfikator konta | Baza backendu | Analiza per-wersja, łączenie zrzutu z danymi |
 
-- **Zrzut ekranu skanu** trafia **wyłącznie** na prywatny webhook Discord zespołu (jak w 2.3),
-  a jego nazwa pliku to identyfikator skanu — pozwala technicznie powiązać obraz z wierszem danych.
+- **Zrzut ekranu skanu nie opuszcza Twojego komputera.** Domyślnie nie jest nawet zapisywany;
+  po włączeniu „logowania obrazów skanu" w Ustawieniach trafia wyłącznie do lokalnego katalogu
+  z logami.
 - **Dane osób trzecich:** tekst OCR może zawierać **publiczne handle innych graczy** widoczne na
   Twoim ekranie w grze. Są to dane publiczne (widoczne w grze i na profilu Spectrum), używane
   wyłącznie do analizy skuteczności narzędzia, nieudostępniane na zewnątrz.
 - **Możesz to wyłączyć:** Ustawienia → „Telemetria skanera". Po wyłączeniu skany nie są zapisywane
-  do analizy (na Discord nadal może iść sam zrzut, zależnie od osobnego ustawienia logowania).
+  do analizy.
 
 ### 2.4. Komunikacja głosowa (Mumble)
 
@@ -242,7 +251,6 @@ dostępne dla kogokolwiek.
 | Odbiorca | Co dostaje | Podstawa prawna |
 |---|---|---|
 | Backend LYNXCommander (nasz VPS w UE) | Wszystkie dane z sekcji 2.1, 2.2 | Wykonanie umowy (Twoja zgoda na korzystanie) |
-| Discord (Discord Inc., USA) | Telemetria błędów (przez webhooki) | Uzasadniony interes administratora — diagnostyka |
 | Roberts Space Industries (CIG) | Publiczne zapytania API o członków org | Brak Twoich danych osobowych w zapytaniu |
 | Serwer Mumble (operowany przez LYNX) | Pakiety głosowe | Wykonanie usługi |
 
@@ -252,8 +260,6 @@ dostępne dla kogokolwiek.
 ## 4. Lokalizacja przetwarzania i transfery międzynarodowe
 
 - Backend LYNX i serwer Mumble są hostowane w **Unii Europejskiej**.
-- Discord (telemetria błędów) — USA. Transfer odbywa się na podstawie
-  **standardowych klauzul umownych (SCC)** zgodnie z RODO.
 - RSI API — USA. Wysyłamy tylko anonimowe zapytania publiczne (handle
   organizacji), brak transferu Twoich danych osobowych.
 
@@ -266,7 +272,7 @@ dostępne dla kogokolwiek.
 | Znajomości, podania rekrutacyjne, hangar, sesje | Do usunięcia przez Ciebie albo usunięcia konta |
 | Logi sesji gameplay | 30 dni od ostatniej aktywności |
 | Cache profili graczy z RSI | 90 dni od ostatniego widzenia / odświeżenia |
-| Telemetria błędów na Discord | Wg polityki retencji kanału Discord (max 1 rok, zwykle krócej) |
+| Paczki diagnostyczne (ZIP) | 90 dni od wysłania, potem usuwane automatycznie; razem z kontem także wcześniej |
 | Logi serwera Mumble | 7 dni |
 | Lokalne pliki (`%APPDATA%\LynxOverlay\`) | Do momentu odinstalowania aplikacji lub ręcznego usunięcia |
 
@@ -276,7 +282,11 @@ dostępne dla kogokolwiek.
   konta Windows, niedostępny dla innych użytkowników komputera).
 - Komunikacja z backendem: **HTTPS/TLS 1.2+**.
 - Komunikacja Mumble: **TLS** na kontrolnym kanale, opus-over-UDP/TCP-tunnel
-  na voice.
+  na voice. Aplikacja sprawdza **odcisk certyfikatu** serwera głosowego, który podaje
+  nasz serwer API, i odmawia połączenia z innym serwerem (ochrona przed podsłuchem
+  w sieci, np. na publicznym Wi-Fi).
+- Aplikacja **nie instaluje** żadnego certyfikatu w magazynie zaufanych certyfikatów
+  Windows. Instalator sprawdza podpis pobranego pliku instalacyjnego, zanim go uruchomi.
 - Hasła użytkowników (jeśli dotyczy): hashowane bcrypt po stronie backendu,
   nigdy nie trzymane w plaintext.
 
@@ -289,9 +299,8 @@ Dla pełnej transparentności i zgodności z regulaminem Star Citizen:
   działają przez systemowe hooki Windows, które **wyłącznie odczytują**, czy klawisz
   jest wciśnięty — nie zapisują wpisywanego tekstu, nie wysyłają go nigdzie i nie
   zmieniają tego, co trafia do gry.
-- **NIE wysyłamy syntetycznego inputu** do okna gry — z jednym wyjątkiem: opcjonalna
-  funkcja „Anti-AFK", domyślnie wyłączona i włączana świadomie przez gracza, opisana
-  w Regulaminie (sekcja 3a).
+- **NIE wysyłamy syntetycznego inputu** do okna gry. Dawną funkcję „Anti-AFK"
+  usunęliśmy z aplikacji 2026-10-12.
 - **NIE modyfikujemy** klienta gry, plików gry, ani żadnej części silnika.
 - OCR to **bierne odczytywanie ekranu** (tak samo jak OBS / Windows accessibility
   reader) — z technicznego punktu widzenia bliżej mu do screenshota niż do

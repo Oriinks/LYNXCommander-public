@@ -52,8 +52,11 @@ Interesują nas wszystkie problemy, które mogą:
 ### Przykłady **w zakresie**:
 - Podpis cyfrowy może być sfałszowany / pominięty.
 - Backend API ujawnia dane innego użytkownika.
-- Webhook Discord URL w binarce można wydobyć i nadużyć (znana sprawa —
-  rotujemy okresowo, ale przyspieszymy jeśli będzie nadużycie).
+- Jakikolwiek sekret (adres webhooka, klucz API, hasło) do wydobycia z binarki.
+  Od 2026-10-12 aplikacja nie zawiera adresów webhooków Discorda — wszystkie
+  raporty idą przez nasze API z tokenem gracza.
+- Połączenie głosowe można przechwycić podstawionym serwerem Mumble (aplikacja
+  sprawdza odcisk certyfikatu serwera podawany przez API).
 - DPAPI token można odczytać przez inny proces.
 - OCR pipeline można nakłonić do wysłania ekranu na inny serwer.
 - **Monitor `Game.log`** (opcjonalny, opt-in) — np. nakłonienie aplikacji do
