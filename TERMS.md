@@ -1,6 +1,6 @@
 # Regulamin korzystania z LYNXCommander
 
-_Wersja: 1.3 · Data wejścia w życie: 2026-09-06 · Aktualizacja: 2026-10-12 (usunięte Anti-AFK, instalator bez certyfikatu)_
+_Wersja: 1.4 · Data wejścia w życie: 2026-09-06 · Aktualizacja: 2026-10-17 (klawisz wpisujący /showlocation w czat gry)_
 
 Niniejszy regulamin ("**Regulamin**") określa zasady korzystania z aplikacji
 **LYNXCommander** (dalej "**Aplikacja**"), będącej narzędziem wspomagającym
@@ -51,7 +51,11 @@ czynności:
 - (b) **nie wstrzykuje** żadnego kodu, DLL-ek ani hooków do procesu gry,
 - (c) **nie czyta pamięci** procesu Star Citizen (`ReadProcessMemory` itp.),
 - (d) **nie wysyła** syntetycznego inputu (klawiatury / myszy / pada) do okna
-  gry (dawną funkcję Anti-AFK usunęliśmy 2026-10-12),
+  gry (dawną funkcję Anti-AFK usunęliśmy 2026-10-12). Jedyny wyjątek to klawisz
+  „wpisz /showlocation” w panelu beaconów: po naciśnięciu przez Ciebie wpisuje tę
+  jedną komendę w czat gry (Enter, tekst, Enter). Nie działa sam, w tle ani w pętli
+  i jest wyłączony, dopóki sam nie przypiszesz mu klawisza. Zasady CIG nie opisują
+  takiego skrótu wprost, więc korzystasz z niego na własną odpowiedzialność,
 - (e) **nie automatyzuje** żadnej akcji w grze (strzelanie, miningowanie, lot,
   zaznaczanie celi w grze — Aplikacja jedynie wyświetla informację OBOK gry,
   na overlay-u),
@@ -85,7 +89,8 @@ stronie. Zobacz sekcję 8.
   Mumble, transmituje Twój głos. Nie nagrywamy.
 - **Hotkeys**: aplikacja rejestruje **globalne** klawisze skrótów przez
   `RegisterHotKey` z user32.dll. Te skróty wywołują akcje WEWNĄTRZ Aplikacji
-  (np. otwarcie radiala, skan OCR). Nie wstrzykują niczego do gry.
+  (np. otwarcie radiala, skan OCR). Nie wstrzykują niczego do gry, poza klawiszem
+  „wpisz /showlocation” opisanym w punkcie (d) wyżej.
 - **Auto-updater**: silnik Velopack sprawdza dostępność nowej wersji i pobiera
   ją z naszej oficjalnej dystrybucji przy każdym uruchomieniu Aplikacji.
   Auto-update jest **wymagany** — nowe wersje zawierają poprawki bezpieczeństwa

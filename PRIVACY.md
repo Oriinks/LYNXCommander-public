@@ -1,6 +1,6 @@
 # Polityka prywatności — LYNXCommander
 
-_Wersja: 1.3 · Data wejścia w życie: 2026-09-16 · Aktualizacja: 2026-10-12 (koniec wysyłki na Discorda, paczki diagnostyczne na naszym serwerze, przypięty certyfikat serwera głosowego, usunięte Anti-AFK)_
+_Wersja: 1.4 · Data wejścia w życie: 2026-09-16 · Aktualizacja: 2026-10-17 (odczyty panelu beaconów w logu serwera przy włączonych raportach błędów)_
 
 Niniejszy dokument opisuje, jakie dane LYNXCommander zbiera, gdzie je przetwarza,
 komu je przekazuje i jak długo je przechowuje. Pisaliśmy go po polsku i w prostym
@@ -98,6 +98,8 @@ plaintext'u). Cleanup worker (background service) usuwa wygasłe rekordy raz na 
 - Twojej pozycji w grze (poza tym, co OCR ekranowy wykryje jako tekst — jeśli
   np. w HUD-zie SC widać nazwę planety, to słowo trafia do parsera; nie czytamy
   pamięci procesu gry).
+  Wyjątkiem są odczyty `/showlocation` z panelu beaconów przy włączonych raportach
+  błędów (sekcja 2.3) oraz punkty, które sam udostępniasz organizacji.
 - Zawartości głosowej z Mumble (sekcja 2.4 poniżej).
 
 **Monitor obecności gry:** Aplikacja sprawdza co 5 sekund czy proces
@@ -136,6 +138,15 @@ i wysyłane zbiorczo, a liczba różnych błędów raportowanych w jednej sesji 
 raport nie służy do śledzenia Twojej aktywności, tylko do wykrycia usterki. To samo
 dotyczy końcówki logu dołączanej do zgłoszenia: jest redagowana z sekretów i przycinana,
 a wysyłasz ją świadomie razem ze zgłoszeniem.
+
+**Odczyty panelu beaconów.** Przy włączonych raportach błędów każdy odczyt `/showlocation`,
+który trafi do panelu beaconów, idzie też do logu serwera: współrzędne z odczytu, kod ciała
+z dziennika gry, identyfikator serwera gry (shard), wersja aplikacji, sposób poprawki obrotu
+oraz nazwa wybranego punktu i odległość do niego. Służy to wyłącznie naprawianiu błędów
+nawigacji (np. „panel prowadzi w złe miejsce”). Nie zapisujemy tego w bazie, nie pokazujemy
+organizacji i nie używamy do śledzenia, gdzie jesteś. Wpisy są tylko w logu bieżącego
+kontenera API i znikają przy jego wymianie, czyli przy każdym wdrożeniu serwera.
+Wyłączenie raportów błędów wyłącza też te wpisy.
 
 ### 2.3.1. Telemetria skanera (IFF i Rock Scanner)
 
