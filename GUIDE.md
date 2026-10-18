@@ -395,7 +395,9 @@ Po pierwszej sesji z drużyną, warto:
 - 📖 Przeczytać [Regulamin](/legal/terms) — krótki, w prostym języku, mówi
   jasno co aplikacja robi i czego NIE.
 - 🎛️ Pobawić się skrótami w Settings → "⌨️ Skróty" — dostosuj pod swoje
-  zwyczaje (klawisze boczne myszy, joystick HOTAS są obsługiwane).
+  zwyczaje (klawisze boczne myszy, joystick HOTAS, pad Xbox i dwa takie same
+  drążki naraz są obsługiwane). W „Urządzenia i osie” nadasz drążkom nazwy,
+  zamienisz ich numery i ustawisz martwą strefę osi.
 - 🎯 Skonfigurować obszary skanowania OCR pod swoją rozdzielczość — to
   jednorazowe ustawienie, które bardzo poprawia działanie Friend/Foe scanu.
 - 🎨 Przesunąć widżety HUD myszką do wygodnych miejsc — wciśnij **F11**
