@@ -230,12 +230,32 @@ na overlay — gdy chcesz coś kliknąć w widżetach).
 | **Crew Status Widget** | Statusy załogi w czasie rzeczywistym | Na ekranie po włączeniu overlay (F12) |
 | **Friend/Foe Widget** | Klasyfikacja widzianych graczy | Wymaga ustawienia obszaru skanu w Settings |
 | **Mumble VoIP** | Komunikacja głosowa z drużyną | Auto-łączy po wejściu w party |
-| **Tactical Radial Menu** | Szybkie akcje (skrót → koło wyboru) | Settings → Skróty → Tactical Menu |
+| **Koło szybkiego wyboru** | Statusy, rozkazy, mikrofon, cel PTT i kanał, beacony, Ready Check i skany pod jednym klawiszem | Settings → Skróty → Koło szybkiego wyboru |
 | **Mission Board** | Zlecenia taktyczne dla drużyny | Panel web → "Operacje" → "Zlecenia Taktyczne" |
 | **Fleet Builder** | Planowanie składu flot (uprawnienia) | Panel web → "Operacje" → "Planer operacji" |
 | **Organization Database** | Spis członków organizacji | Panel web → "Konto & Organizacja" → "Baza Organizacji" |
 | **Rock Scanner** | OCR skanera skał (mining) | Wymaga konfiguracji obszaru w Settings |
 | **Contract Tracker** | Tracking zleceń podczas misji | Widżet w HUD + przycisk Track w panelu web |
+
+**Koło szybkiego wyboru** ma zawsze 8 pól i każde pole stoi zawsze w tym samym
+kierunku, więc po kilku grach trafiasz z pamięci. Pierwsza strona:
+
+| Pole | Co |
+|---|---|
+| 1 ↑ | Statusy |
+| 2 ↗ | Rozkazy |
+| 3 → | Mikrofon: wycisz / włącz |
+| 4 ↘ | Głos: dokąd nadaje PTT (mój kanał, cała gałąź, cały serwer) i zmiana kanału |
+| 5 ↓ | Beacony: zapis, wpisanie `/showlocation`, nawigacja, wybór celu |
+| 6 ↙ | Ready Check (lider) |
+| 7 ← | Skany IFF i skał, MobiGlass, tryb interakcji, ukrycie nakładki, ustawienia |
+| 8 ↖ | TERAZ — odpowiedź na to, co czeka (połączenie, zaproszenie, ready check); w spokoju ostatnio wysłane |
+
+Wybierasz myszą, klawiszami **1–8** albo joystickiem. Dłuższa lista dzieli się
+na strony: 7 opcji i **DALEJ ▶** w polu 8, a na kolejnych stronach **◀ WSTECZ**
+w polu 1 (strony zmienia też kółko myszy). Środek koła cofa o poziom, Esc zamyka.
+Cel PTT zostaje do zmiany i po restarcie wraca na własny kanał. Dawne menu z samymi
+rozkazami i statusami da się przywrócić w Settings → Skróty → „Stare menu radialne".
 
 ---
 
