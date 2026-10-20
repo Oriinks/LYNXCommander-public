@@ -230,7 +230,7 @@ na overlay — gdy chcesz coś kliknąć w widżetach).
 | **Crew Status Widget** | Statusy załogi w czasie rzeczywistym | Na ekranie po włączeniu overlay (F12) |
 | **Friend/Foe Widget** | Klasyfikacja widzianych graczy | Wymaga ustawienia obszaru skanu w Settings |
 | **Mumble VoIP** | Komunikacja głosowa z drużyną | Auto-łączy po wejściu w party |
-| **Koło szybkiego wyboru** | Statusy, rozkazy, mikrofon, cel PTT i kanał, beacony, Ready Check i skany pod jednym klawiszem | Settings → Skróty → Koło szybkiego wyboru |
+| **Koło szybkiego wyboru** | Statusy, rozkazy, mikrofon, kanały dwóch przycisków radia, beacony, Ready Check i skany pod jednym klawiszem | Settings → Skróty → Koło szybkiego wyboru |
 | **Mission Board** | Zlecenia taktyczne dla drużyny | Panel web → "Operacje" → "Zlecenia Taktyczne" |
 | **Fleet Builder** | Planowanie składu flot (uprawnienia) | Panel web → "Operacje" → "Planer operacji" |
 | **Organization Database** | Spis członków organizacji | Panel web → "Konto & Organizacja" → "Baza Organizacji" |
@@ -245,7 +245,7 @@ kierunku, więc po kilku grach trafiasz z pamięci. Pierwsza strona:
 | 1 ↑ | Statusy |
 | 2 ↗ | Rozkazy |
 | 3 → | Mikrofon: wycisz / włącz |
-| 4 ↘ | Głos: dokąd nadaje PTT (mój kanał, cała gałąź, cały serwer) i zmiana kanału |
+| 4 ↘ | Głos: cel (kanał, cała gałąź, cały serwer), potem Przycisk 1 albo Przycisk 2 |
 | 5 ↓ | Beacony: zapis, wpisanie `/showlocation`, nawigacja, wybór celu |
 | 6 ↙ | Ready Check (lider) |
 | 7 ← | Skany IFF i skał, MobiGlass, tryb interakcji, ukrycie nakładki, ustawienia |
@@ -254,8 +254,17 @@ kierunku, więc po kilku grach trafiasz z pamięci. Pierwsza strona:
 Wybierasz myszą, klawiszami **1–8** albo joystickiem. Dłuższa lista dzieli się
 na strony: 7 opcji i **DALEJ ▶** w polu 8, a na kolejnych stronach **◀ WSTECZ**
 w polu 1 (strony zmienia też kółko myszy). Środek koła cofa o poziom, Esc zamyka.
-Cel PTT zostaje do zmiany i po restarcie wraca na własny kanał. Dawne menu z samymi
-rozkazami i statusami da się przywrócić w Settings → Skróty → „Stare menu radialne".
+Dawne menu z samymi rozkazami i statusami da się przywrócić w Settings → Skróty →
+„Stare menu radialne".
+
+**Dwa przyciski radia.** Przycisk 1 to zwykłe PTT: mówisz na kanał, na którym stoisz.
+Przycisk 2 (Settings → Skróty, „Przycisk 2 — drugie radio”) działa tak samo, tylko nadaje
+na własny cel, jak drugie radio. Cel wybierasz w kole: **Głos → kanał → Przycisk 1 /
+Przycisk 2**. Przycisk 1 przechodzi na wybrany kanał, przycisk 2 zostawia Cię tam, gdzie
+jesteś, i tylko nadaje na wybrany kanał. Na liście jest też kanał piętro wyżej (↑), cała
+gałąź i cały serwer. Domyślnie przycisk 2 nadaje na całą gałąź. Kanał przycisku 2 trwa
+do zmiany pokoju; po restarcie nakładki przycisk 1 wraca na własny kanał, a przycisk 2
+na gałąź.
 
 ---
 
