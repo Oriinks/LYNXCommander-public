@@ -257,6 +257,13 @@ w polu 1 (strony zmienia też kółko myszy). Środek koła cofa o poziom, Esc z
 Dawne menu z samymi rozkazami i statusami da się przywrócić w Settings → Skróty →
 „Stare menu radialne".
 
+**Klawisz koła i analog.** Klik klawisza menu taktycznego otwiera koło, kolejny klik
+zatwierdza podświetlone pole (w kategorii wchodzi poziom niżej), a przytrzymanie
+klawisza przez 0,5 s zamyka koło od razu, z każdego poziomu. Pole wskazujesz myszą
+albo analogiem: w Settings → Skróty kliknij **USTAW OSIE** i porusz analogiem, którym
+chcesz sterować (grzybek joysticka lub HOTAS-a albo gałka pada Xbox). Analog puszczony
+na środek to środek koła: wstecz, a na pierwszym poziomie zamknij.
+
 **Dwa przyciski radia.** Przycisk 1 to zwykłe PTT: mówisz na kanał, na którym stoisz.
 Przycisk 2 (Settings → Skróty, „Przycisk 2 — drugie radio”) działa tak samo, tylko nadaje
 na własny cel, jak drugie radio. Cel wybierasz w kole: **Głos → kanał → Przycisk 1 /
