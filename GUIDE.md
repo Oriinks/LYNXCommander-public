@@ -356,6 +356,12 @@ regulaminu Cloud Imperium Games (CIG) / Roberts Space Industries (RSI):
   reader) — żadnego dostępu do stanu gry.
 - ✅ Overlay HUD rysuje **nad oknem gry** (topmost WPF window), nie
   modyfikuje gry.
+- ✅ Jedyny wyjątek to **opcjonalne tłumaczenie Kraken** (StarStrings od
+  MrKrakena, Settings → Start i połączenie): na Twoje kliknięcie i przy
+  wyłączonej grze nakładka wgrywa plik `data\Localization\english\global.ini`
+  i linię `g_language = english` w `user.cfg`. To droga, którą CIG
+  przewidziało dla tłumaczeń społeczności; odinstalowanie przywraca stan
+  sprzed instalacji.
 - ✅ Aplikacja jest **podpisana cyfrowo** (Authenticode SHA-256, ważne do
   2031).
 - ✅ Zgłoszona do **Microsoft Defender Security Intelligence (WDSI)**
