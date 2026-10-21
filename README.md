@@ -26,7 +26,7 @@ Szczegóły poniżej w sekcji [Bezpieczeństwo i Anti-cheat](#bezpieczeństwo-i-
 
 Aplikację pobieraj **wyłącznie** z oficjalnych źródeł:
 
-1. **Strona LYNXCommander**: https://lynxcommander.pl/ _(strona oficjalna)_
+1. **Strona LYNXCommander**: https://lynxcommander.pl/ albo https://lynxcommander.com/ _(strona oficjalna, obie domeny są nasze)_
 2. **GitHub Releases**: https://github.com/Oriinks/LYNXCommander/releases
 
 Każdy release zawiera:
