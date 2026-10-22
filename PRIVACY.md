@@ -1,10 +1,11 @@
 # Polityka prywatności — LYNXCommander
 
-_Wersja: 1.4 · Data wejścia w życie: 2026-09-16 · Aktualizacja: 2026-10-17 (odczyty panelu beaconów w logu serwera przy włączonych raportach błędów)_
+_Wersja: 1.5 · Data wejścia w życie: 2026-09-16 · Aktualizacja: 2026-10-22 (instalator: dziennik instalacji, wybór przy odinstalowaniu; wersje angielska i czeska)_
 
 Niniejszy dokument opisuje, jakie dane LYNXCommander zbiera, gdzie je przetwarza,
 komu je przekazuje i jak długo je przechowuje. Pisaliśmy go po polsku i w prostym
-języku, żeby był zrozumiały dla wszystkich graczy.
+języku, żeby był zrozumiały dla wszystkich graczy. Wersje angielska i czeska są
+tłumaczeniami tego dokumentu.
 
 W razie pytań napisz do nas przez **formularz kontaktowy** na stronie
 (lynxcommander.pl/kontakt) — zgłoszenie trafia do nas z datą wpłynięcia,
@@ -121,6 +122,7 @@ uprawnień.
 | Końcówka logu dołączona do zgłoszenia błędu | Tylko gdy wysyłasz zgłoszenie z zaznaczonym polem „Dołącz logi diagnostyczne" (domyślnie zaznaczone, możesz odznaczyć) | Serwer LYNX → zgłoszenie w OpenProject | Ustalenie przyczyny zgłoszonego problemu |
 | `mumble_debug.txt` | Lokalnie, zawsze | `%APPDATA%\LynxOverlay\` lub katalog aplikacji | Debug Mumble (rotowany lokalnie, nigdzie nie wysyłany automatycznie) |
 | Settings (preferencje overlay) | Lokalnie | `%APPDATA%\LynxOverlay\settings.json` | Twoje preferencje, niewysyłane na serwer |
+| Dziennik instalatora (przebieg instalacji, wersje, błędy; bez nazwy konta Windows) | Lokalnie, przy każdym uruchomieniu instalatora | `%APPDATA%\LYNXCommander\logs\instalator.log` | Pomoc przy problemie z instalacją — wysyłasz go tylko sam, np. w zgłoszeniu |
 
 **Od wersji z 2026-10-12 aplikacja nie wysyła niczego na Discorda.** Wszystkie raporty
 trafiają na nasz serwer. Gdy pojawi się nowy błąd albo paczka, nasz system monitoringu
@@ -285,7 +287,8 @@ dostępne dla kogokolwiek.
 | Cache profili graczy z RSI | 90 dni od ostatniego widzenia / odświeżenia |
 | Paczki diagnostyczne (ZIP) | 90 dni od wysłania, potem usuwane automatycznie; razem z kontem także wcześniej |
 | Logi serwera Mumble | 7 dni |
-| Lokalne pliki (`%APPDATA%\LynxOverlay\`) | Do momentu odinstalowania aplikacji lub ręcznego usunięcia |
+| Token logowania i klucz UEX (`%LOCALAPPDATA%\LynxOverlay\`) | Do wylogowania albo odinstalowania aplikacji (odinstalowanie usuwa je zawsze) |
+| Lokalne pliki (`%APPDATA%\LynxOverlay\`, `%APPDATA%\LYNXCommander\`) | Do odinstalowania z wyborem „Usuń wszystko” albo ręcznego usunięcia; przy wyborze „Zachowaj ustawienia” zostają na wypadek ponownej instalacji |
 
 ## 6. Bezpieczeństwo danych
 
@@ -353,11 +356,12 @@ Masz prawo:
 Pozostałe prawa (ograniczenie, sprzeciw) oraz wszystko, czego nie da się zrobić w aplikacji,
 realizujemy na prośbę z **formularza kontaktowego** (lynxcommander.pl/kontakt,
 rodzaj sprawy „Moje dane osobowe (RODO)") — odpowiemy w ciągu 30 dni.
-Pliki nakładki na Twoim komputerze (`%APPDATA%\LYNXCommander`) usuwasz sam,
-odinstalowując aplikację.
+Pliki nakładki na Twoim komputerze usuwasz sam: przy odinstalowaniu wybierz „Usuń wszystko”
+(ustawienia, logi i pobrane dane z `%APPDATA%\LynxOverlay` i `%APPDATA%\LYNXCommander`).
+Token logowania i klucz UEX odinstalowanie usuwa zawsze.
 
 Masz też prawo wnieść skargę do **Prezesa Urzędu Ochrony Danych Osobowych**
-(https://uodo.gov.pl).
+(https://uodo.gov.pl) albo do organu nadzorczego w kraju, w którym mieszkasz.
 
 ## 9. Cookies i podobne technologie
 
@@ -375,6 +379,7 @@ w aplikacji.
 
 ---
 
-_Ostatnia aktualizacja: 2026-09-16 (v1.2 — samoobsługowy eksport i usunięcie konta,
+_Ostatnia aktualizacja: 2026-10-22 (v1.5 — dziennik instalatora, wybór przy odinstalowaniu, wersje angielska
+i czeska; v1.2 — samoobsługowy eksport i usunięcie konta,
 sekcja 2.7: organizacje, znajomi i widoczność; v1.1 — sekcja 2.6: monitor `Game.log`). Wersja źródłowa: w repo GitHub w pliku
 [`PRIVACY.md`](PRIVACY.md)._
