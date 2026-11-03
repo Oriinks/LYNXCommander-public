@@ -1,6 +1,6 @@
 # Polityka prywatności — LYNXCommander
 
-_Wersja: 1.5 · Data wejścia w życie: 2026-09-16 · Aktualizacja: 2026-10-22 (instalator: dziennik instalacji, wybór przy odinstalowaniu; wersje angielska i czeska)_
+_Wersja: 1.6 · Data wejścia w życie: 2026-09-16 · Aktualizacja: 2026-10-23 (bot Discorda i konta gości z Discorda, sekcja 2.8)_
 
 Niniejszy dokument opisuje, jakie dane LYNXCommander zbiera, gdzie je przetwarza,
 komu je przekazuje i jak długo je przechowuje. Pisaliśmy go po polsku i w prostym
@@ -36,6 +36,9 @@ więc nic nie ginie w skrzynce.
   konta jednym kliknięciem i tam też **usuniesz konto** — bez pisania do nas. Sekcja 8.
 - **Organizacje widzą tylko swoich członków.** Gracz bez organizacji jest niewidoczny dla
   innych — widzą go wyłącznie osoby, które sam dodał do znajomych. Sekcja 2.7.
+- **Bot Discorda** dostaje Twoje Discord ID, nazwę i awatar dopiero, gdy klikniesz jego przycisk
+  albo użyjesz komendy. Zapis na operację bez konta zakłada **konto gościa**, które usuwamy
+  30 dni po ostatniej operacji, jeśli się nie zalogujesz. Sekcja 2.8.
 
 ---
 
@@ -259,6 +262,32 @@ przekazać organizację innemu członkowi albo ją usunąć. Po usunięciu organ
 członkowie stają się graczami bez organizacji, a dane operacyjne organizacji przestają być
 dostępne dla kogokolwiek.
 
+### 2.8. Bot Discorda
+
+Bot LYNX Commander ogłasza operacje na serwerach Discord organizacji, zbiera zapisy i, gdy
+organizator to włączy, przenosi graczy do kanałów głosowych jednostek. Opis uprawnień bota:
+[lynxcommander.pl/bot](/bot).
+
+| Dane | Skąd | Po co |
+|---|---|---|
+| Discord ID, nazwa użytkownika, awatar | Discord, gdy klikniesz przycisk bota albo użyjesz komendy | Przypisanie zapisu i miejsca w załodze do konta |
+| Odpowiedź (Będę / Może / Nie będę), miejsce w załodze, własny statek | Twoje kliknięcia | Planowanie operacji przez organizatora |
+| Obecność na kanale głosowym | Discord, tylko w kategoriach wskazanych przez administratora, tylko w trwającej operacji z włączonym przenoszeniem | Przeniesienie Cię do kanału Twojej jednostki; nie zapisujemy jej |
+| Kogo bot przeniósł albo zaprosił | Bot | Żeby nie przenosić nikogo dwa razy; kasujemy po usunięciu kanałów operacji |
+| Treść zgłoszenia błędu | Formularz „🐞 Zgłoś błąd” w bocie | Naprawa błędu; zgłoszenie ma nick, bez Discord ID |
+
+**Konto gościa.** Jeśli klikniesz „Będę” albo „Może”, a nie masz konta LYNX, zakładamy konto
+gościa z Twoją nazwą i awatarem z Discorda i dopisujemy Cię do operacji jako gościa. Organizator
+operacji widzi Twoją nazwę, awatar, odpowiedź i miejsce. Gdy zalogujesz się przez Discorda na
+lynxcommander.pl, konto staje się zwykłym kontem. Jeśli się nie zalogujesz, konto i Twoje zapisy
+**usuwamy automatycznie 30 dni po ostatniej operacji**, w której brałeś udział. Odpowiedź „Nie
+będę” bez konta nie zakłada żadnego konta. Podstawa prawna: wykonanie umowy (art. 6 ust. 1 lit. b
+RODO), bo sam prosisz o zapis na operację.
+
+**Twoje wybory.** Komenda `/lynx-prywatne` wyłącza wiadomości prywatne od bota (przypomnienia,
+przydziały). Przycisk w `/lynx` wyłącza przenoszenie Cię między kanałami. Bot nie czyta treści
+wiadomości ani listy członków serwera.
+
 ## 3. Komu udostępniamy dane
 
 | Odbiorca | Co dostaje | Podstawa prawna |
@@ -266,6 +295,7 @@ dostępne dla kogokolwiek.
 | Backend LYNXCommander (nasz VPS w UE) | Wszystkie dane z sekcji 2.1, 2.2 | Wykonanie umowy (Twoja zgoda na korzystanie) |
 | Roberts Space Industries (CIG) | Publiczne zapytania API o członków org | Brak Twoich danych osobowych w zapytaniu |
 | Serwer Mumble (operowany przez LYNX) | Pakiety głosowe | Wykonanie usługi |
+| Discord Inc. | Treść ogłoszeń operacji i wiadomości bota, nazwy kanałów jednostek, przeniesienia między kanałami | Wykonanie usługi (bot działa na Discordzie, z którego już korzystasz) |
 
 **NIE sprzedajemy** Twoich danych. **NIE udostępniamy** ich reklamodawcom ani
 żadnej innej stronie trzeciej poza wymienionymi powyżej.
@@ -275,6 +305,8 @@ dostępne dla kogokolwiek.
 - Backend LYNX i serwer Mumble są hostowane w **Unii Europejskiej**.
 - RSI API — USA. Wysyłamy tylko anonimowe zapytania publiczne (handle
   organizacji), brak transferu Twoich danych osobowych.
+- Discord — USA. Bot wysyła do Discorda ogłoszenia i wiadomości, a Discord przetwarza je na
+  własnych zasadach (standardowe klauzule umowne i EU-US Data Privacy Framework).
 
 ## 5. Czas przechowywania (retention)
 
@@ -287,6 +319,8 @@ dostępne dla kogokolwiek.
 | Cache profili graczy z RSI | 90 dni od ostatniego widzenia / odświeżenia |
 | Paczki diagnostyczne (ZIP) | 90 dni od wysłania, potem usuwane automatycznie; razem z kontem także wcześniej |
 | Logi serwera Mumble | 7 dni |
+| Konto gościa z Discorda i jego zapisy | 30 dni po ostatniej operacji, chyba że zalogujesz się na stronie (wtedy jak dane konta) |
+| Ślad przeniesień przez bota | Do usunięcia kanałów jednostek po operacji |
 | Token logowania i klucz UEX (`%LOCALAPPDATA%\LynxOverlay\`) | Do wylogowania albo odinstalowania aplikacji (odinstalowanie usuwa je zawsze) |
 | Lokalne pliki (`%APPDATA%\LynxOverlay\`, `%APPDATA%\LYNXCommander\`) | Do odinstalowania z wyborem „Usuń wszystko” albo ręcznego usunięcia; przy wyborze „Zachowaj ustawienia” zostają na wypadek ponownej instalacji |
 
@@ -379,7 +413,7 @@ w aplikacji.
 
 ---
 
-_Ostatnia aktualizacja: 2026-10-22 (v1.5 — dziennik instalatora, wybór przy odinstalowaniu, wersje angielska
+_Ostatnia aktualizacja: 2026-10-23 (v1.6 — sekcja 2.8: bot Discorda i konta gości; v1.5 — dziennik instalatora, wybór przy odinstalowaniu, wersje angielska
 i czeska; v1.2 — samoobsługowy eksport i usunięcie konta,
 sekcja 2.7: organizacje, znajomi i widoczność; v1.1 — sekcja 2.6: monitor `Game.log`). Wersja źródłowa: w repo GitHub w pliku
 [`PRIVACY.md`](PRIVACY.md)._

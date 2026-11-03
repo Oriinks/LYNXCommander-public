@@ -230,7 +230,7 @@ na overlay — gdy chcesz coś kliknąć w widżetach).
 | **Crew Status Widget** | Statusy załogi w czasie rzeczywistym | Na ekranie po włączeniu overlay (F12) |
 | **Friend/Foe Widget** | Klasyfikacja widzianych graczy | Wymaga ustawienia obszaru skanu w Settings |
 | **Mumble VoIP** | Komunikacja głosowa z drużyną | Auto-łączy po wejściu w party |
-| **Koło szybkiego wyboru** | Statusy, rozkazy, mikrofon, kanały dwóch przycisków radia, beacony, Ready Check i skany pod jednym klawiszem | Settings → Skróty → Koło szybkiego wyboru |
+| **Koło szybkiego wyboru** | Statusy, rozkazy, wyciszenie mikrofonu i Mumble, kanały dwóch przycisków radia, beacony, Ready Check i skany pod jednym klawiszem | Settings → Skróty → Koło szybkiego wyboru |
 | **Mission Board** | Zlecenia taktyczne dla drużyny | Panel web → "Operacje" → "Zlecenia Taktyczne" |
 | **Fleet Builder** | Planowanie składu flot (uprawnienia) | Panel web → "Operacje" → "Planer operacji" |
 | **Organization Database** | Spis członków organizacji | Panel web → "Konto & Organizacja" → "Baza Organizacji" |
@@ -244,12 +244,12 @@ kierunku, więc po kilku grach trafiasz z pamięci. Pierwsza strona:
 |---|---|
 | 1 ↑ | Statusy |
 | 2 ↗ | Rozkazy |
-| 3 → | Mikrofon: wycisz / włącz |
+| 3 → | Wyciszenie: **Mój mikrofon** (nie nadajesz) albo **Dźwięk Mumble** (nie słyszysz nikogo; wycisza też mikrofon) |
 | 4 ↘ | Głos: cel (kanał, cała gałąź, cały serwer), potem Przycisk 1 albo Przycisk 2 |
 | 5 ↓ | Beacony: zapis, wpisanie `/showlocation`, nawigacja, wybór celu |
 | 6 ↙ | Ready Check (lider) |
-| 7 ← | Skany IFF i skał, MobiGlass, tryb interakcji, ukrycie nakładki, ustawienia |
-| 8 ↖ | TERAZ — odpowiedź na to, co czeka (połączenie, zaproszenie, ready check); w spokoju ostatnio wysłane |
+| 7 ← | Skany IFF i skał, MobiGlass, ukrycie nakładki, ustawienia |
+| 8 ↖ | TERAZ — odpowiedź na to, co czeka (połączenie, zaproszenie, ready check); w spokoju tryb interakcji |
 
 Wybierasz myszą, klawiszami **1–8** albo joystickiem. Dłuższa lista dzieli się
 na strony: 7 opcji i **DALEJ ▶** w polu 8, a na kolejnych stronach **◀ WSTECZ**
@@ -261,15 +261,23 @@ Dawne menu z samymi rozkazami i statusami da się przywrócić w Settings → Sk
 zatwierdza podświetlone pole (w kategorii wchodzi poziom niżej), a przytrzymanie
 klawisza przez 0,5 s zamyka koło od razu, z każdego poziomu. Pole wskazujesz myszą
 albo analogiem: w Settings → Skróty kliknij **USTAW OSIE** i porusz analogiem, którym
-chcesz sterować (grzybek joysticka lub HOTAS-a albo gałka pada Xbox). Analog puszczony
-na środek to środek koła: wstecz, a na pierwszym poziomie zamknij.
+chcesz sterować (grzybek joysticka lub HOTAS-a albo gałka pada Xbox). Wskazane pole
+zostaje podświetlone także po puszczeniu drążka, więc możesz spokojnie kliknąć.
 
 **Dwa przyciski radia.** Przycisk 1 to zwykłe PTT: mówisz na kanał, na którym stoisz.
 Przycisk 2 (Settings → Skróty, „Przycisk 2 — drugie radio”) działa tak samo, tylko nadaje
 na własny cel, jak drugie radio. Cel wybierasz w kole: **Głos → kanał → Przycisk 1 /
 Przycisk 2**. Przycisk 1 przechodzi na wybrany kanał, przycisk 2 zostawia Cię tam, gdzie
 jesteś, i tylko nadaje na wybrany kanał. Na liście jest też kanał piętro wyżej (↑), cała
-gałąź i cały serwer. Domyślnie przycisk 2 nadaje na całą gałąź. Kanał przycisku 2 trwa
+gałąź i cały serwer. Domyślnie przycisk 2 nadaje na całą gałąź.
+
+Gdy celem przycisku 2 jest jeden kanał, słyszysz też wszystkich, którzy na nim mówią,
+choć na nim nie stoisz. Działa to jak wspólna częstotliwość: gracze z różnych pokoi,
+którzy mają ten sam kanał na przycisku 2, słyszą się nawzajem, nawet gdy na samym kanale
+nikt nie stoi. Tak masz łączność na dwa kanały naraz: przyciskiem 1 mówisz na swój kanał,
+przyciskiem 2 na drugi, a słyszysz oba. Wskaźnik pokazuje wtedy dopisek
+„(słyszysz)” przy celu PTT 2. Cała gałąź i cały serwer działają jak dotąd: przycisk 2
+na nie nadaje, ale ich nie słuchasz. Kanał przycisku 2 trwa
 do zmiany pokoju; po restarcie nakładki przycisk 1 wraca na własny kanał, a przycisk 2
 na gałąź.
 
