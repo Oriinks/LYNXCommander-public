@@ -1,6 +1,6 @@
 # Polityka prywatności — LYNXCommander
 
-_Wersja: 1.6 · Data wejścia w życie: 2026-09-16 · Aktualizacja: 2026-10-23 (bot Discorda i konta gości z Discorda, sekcja 2.8)_
+_Wersja: 1.7 · Data wejścia w życie: 2026-09-16 · Aktualizacja: 2026-11-09 (statystyki odwiedzin strony bez cookies, sekcja 9)_
 
 Niniejszy dokument opisuje, jakie dane LYNXCommander zbiera, gdzie je przetwarza,
 komu je przekazuje i jak długo je przechowuje. Pisaliśmy go po polsku i w prostym
@@ -405,6 +405,20 @@ przechowywany lokalnie nie jest cookie — to plik aplikacji.
 Strona internetowa LYNXCommander może używać minimalnych cookies technicznych
 (sesja). Te są opisane na samej stronie www.
 
+**Statystyki odwiedzin strony.** Strona www liczy odwiedziny narzędziem Umami,
+które działa na **naszym własnym serwerze** — dane nie trafiają do Google ani do
+innych firm. Umami **nie używa cookies** i niczego nie zapisuje w Twojej
+przeglądarce. Przy każdej odsłonie wysyła adres podstrony (bez parametrów i bez
+kodów z linków — np. link do przesyłki zapisujemy jako `/p/[token]`), stronę, z której
+trafiasz do nas (z obcych stron tylko domenę), język, rozdzielczość ekranu oraz rodzaj
+przeglądarki, systemu i urządzenia. Kraj i region ustalamy z adresu IP w chwili
+odsłony, ale **samego adresu IP nie zapisujemy**. Odwiedziny tej samej osoby łączymy
+skrótem (hashem), którego klucz zmienia się co miesiąc, więc widzimy liczby („ile osób
+otworzyło poradnik”), a nie konkretnych ludzi. Statystyki ogląda tylko administrator.
+Podstawa prawna: nasz uzasadniony interes w ulepszaniu strony (art. 6 ust. 1 lit. f
+RODO). Jeśli Twoja przeglądarka wysyła sygnał „Do Not Track”, Twoich odwiedzin
+nie liczymy.
+
 ## 10. Zmiany polityki prywatności
 
 Możemy aktualizować ten dokument. Wersja i data wejścia w życie są na górze
@@ -413,7 +427,7 @@ w aplikacji.
 
 ---
 
-_Ostatnia aktualizacja: 2026-10-23 (v1.6 — sekcja 2.8: bot Discorda i konta gości; v1.5 — dziennik instalatora, wybór przy odinstalowaniu, wersje angielska
+_Ostatnia aktualizacja: 2026-11-09 (v1.7 — sekcja 9: statystyki odwiedzin strony bez cookies; v1.6 — sekcja 2.8: bot Discorda i konta gości; v1.5 — dziennik instalatora, wybór przy odinstalowaniu, wersje angielska
 i czeska; v1.2 — samoobsługowy eksport i usunięcie konta,
 sekcja 2.7: organizacje, znajomi i widoczność; v1.1 — sekcja 2.6: monitor `Game.log`). Wersja źródłowa: w repo GitHub w pliku
 [`PRIVACY.md`](PRIVACY.md)._
