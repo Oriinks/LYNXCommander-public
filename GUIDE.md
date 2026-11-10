@@ -106,9 +106,9 @@ wystawiła link. Konta, które już należy do organizacji, link nie przenosi.
 
 ## 4. Krok 2 — Pobranie i instalacja
 
-Po zalogowaniu na stronie:
+Instalator pobierzesz bez logowania:
 
-1. W bocznym menu (sekcja **INFORMACJE**) kliknij **"Strona pobierania"**.
+1. Otwórz https://lynxcommander.pl/pobierz (zalogowany znajdziesz ją też w bocznym menu, sekcja **INFORMACJE**, **"Strona pobierania"**).
 2. Kliknij duży niebieski przycisk **"Pobierz LynxInstaller.exe"** — plik
    zapisze się w `Pobrane`/`Downloads`.
 3. Dwukrotnie kliknij pobrany plik.
