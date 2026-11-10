@@ -1,6 +1,6 @@
 # Polityka prywatności — LYNXCommander
 
-_Wersja: 1.7 · Data wejścia w życie: 2026-09-16 · Aktualizacja: 2026-11-09 (statystyki odwiedzin strony bez cookies, sekcja 9)_
+_Wersja: 1.8 · Data wejścia w życie: 2026-09-16 · Aktualizacja: 2026-11-10 (kroki ekranu powitalnego w statystykach, sekcja 9)_
 
 Niniejszy dokument opisuje, jakie dane LYNXCommander zbiera, gdzie je przetwarza,
 komu je przekazuje i jak długo je przechowuje. Pisaliśmy go po polsku i w prostym
@@ -417,7 +417,9 @@ skrótem (hashem), którego klucz zmienia się co miesiąc, więc widzimy liczby
 otworzyło poradnik”), a nie konkretnych ludzi. Statystyki ogląda tylko administrator.
 Podstawa prawna: nasz uzasadniony interes w ulepszaniu strony (art. 6 ust. 1 lit. f
 RODO). Jeśli Twoja przeglądarka wysyła sygnał „Do Not Track”, Twoich odwiedzin
-nie liczymy.
+nie liczymy. Na ekranie powitalnym nowego konta Umami liczy też kroki (np. „wpisano
+nick”, „wybrano solo”, „pobrano nakładkę”): zapisuje samą nazwę kroku, bez nicku
+i bez danych konta, żeby było widać, na którym kroku nowi gracze rezygnują.
 
 ## 10. Zmiany polityki prywatności
 
@@ -427,7 +429,7 @@ w aplikacji.
 
 ---
 
-_Ostatnia aktualizacja: 2026-11-09 (v1.7 — sekcja 9: statystyki odwiedzin strony bez cookies; v1.6 — sekcja 2.8: bot Discorda i konta gości; v1.5 — dziennik instalatora, wybór przy odinstalowaniu, wersje angielska
+_Ostatnia aktualizacja: 2026-11-10 (v1.8 — sekcja 9: kroki ekranu powitalnego w statystykach; v1.7 — sekcja 9: statystyki odwiedzin strony bez cookies; v1.6 — sekcja 2.8: bot Discorda i konta gości; v1.5 — dziennik instalatora, wybór przy odinstalowaniu, wersje angielska
 i czeska; v1.2 — samoobsługowy eksport i usunięcie konta,
 sekcja 2.7: organizacje, znajomi i widoczność; v1.1 — sekcja 2.6: monitor `Game.log`). Wersja źródłowa: w repo GitHub w pliku
 [`PRIVACY.md`](PRIVACY.md)._
