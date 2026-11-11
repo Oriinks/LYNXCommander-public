@@ -1,13 +1,10 @@
 # Przewodnik dla nowego gracza — LYNXCommander
 
-_Wersja: 1.0 · Data: 2026-05-18_
+_Ostatnia aktualizacja: 2026-11-11_
 
-Cześć! Trafiłeś tu, bo prawdopodobnie ktoś polecił Ci LYNXCommander albo
-trafiłeś na nas w organizacji Star Citizen. Ten dokument przeprowadzi Cię
-przez pierwsze uruchomienie — od pobrania, przez instalację, po pierwszą
-sesję z drużyną.
+Cześć! Trafiłeś tu, bo ktoś Ci nas polecił albo znalazłeś nas przez organizację Star Citizen. Ten dokument prowadzi Cię od założenia konta, przez instalację nakładki, po pierwszą grę z innymi.
 
-**Czytanie zajmie ~5 minut. Komplet konfiguracji: ~10 minut.**
+**Czytanie zajmie ~5 minut. Konfiguracja: ~10 minut.**
 
 ---
 
@@ -29,24 +26,17 @@ sesję z drużyną.
 
 ## 1. Co to jest LYNXCommander
 
-LYNXCommander to **pasywne narzędzie wspomagające** dla graczy Star Citizen
-grających w zorganizowanych drużynach. Składa się z:
+LYNXCommander to **pasywne narzędzie wspomagające** dla graczy Star Citizen: grających solo, w doraźnych grupach i w organizacjach. Składa się z:
 
-- 🌐 **Strony web** (`lynxcommander.pl`) — panel zarządzania składem drużyny,
-  oznaczania graczy hostile/friendly (IFF), planowania operacji
-- 🖥️ **Aplikacji desktop (overlay)** — nakładka HUD na grę pokazująca
-  status załogi w czasie rzeczywistym, plus zintegrowany klient głosowy Mumble
-- 🎙️ **Serwera Mumble** — niskolatentny VoIP dla drużyny
+- 🌐 **Strony** (`lynxcommander.pl`): profil, organizacje i rekrutacja, planowanie misji i operacji, kontrakty, hangar, pobranie nakładki
+- 🖥️ **Nakładki na Windows**: panele HUD i MobiGlass nad grą (skanery skał i IFF, głos, grupy, ready check, kontrakty, misje, beacony) ze zintegrowanym klientem głosowym Mumble
+- 🎙️ **Serwera Mumble**: głos o niskim opóźnieniu dla grup i organizacji
 
-> 💡 **Krótko mówiąc:** Discord do gadania, LYNX do koordynacji w grze.
+> 💡 **Krótko:** Discord do rozmowy, LYNX do koordynacji w grze. Strona służy do konta, organizacji i planowania, a skanery, głos i panele działają w nakładce.
 
-**Co LYNX robi:** pokazuje status drużyny obok gry, pozwala szybko zaznaczać
-wrogów/sojuszników, daje radio z niską latencją, łączy organizację z grupą
-operacyjną.
+**Co LYNX robi:** pokazuje status ludzi obok gry, rozpoznaje graczy skanerem IFF, daje radio z niską latencją i łączy organizację z grupą operacyjną.
 
-**Czego LYNX NIE robi:** nie modyfikuje gry, nie wysyła klawiszy do gry,
-nie automatyzuje akcji, nie pomaga celować — pełna lista i wyjaśnienie
-w sekcji 12 (i w [Regulaminie](/legal/terms) sekcja 3).
+**Czego LYNX NIE robi:** nie modyfikuje gry, nie wysyła klawiszy do gry, nie automatyzuje akcji i nie pomaga celować. Pełna lista jest w sekcji 11 i w [Regulaminie](/legal/terms), sekcja 3.
 
 ---
 
@@ -58,36 +48,52 @@ Zanim ruszysz:
 |---|---|
 | **Konto Discord** | Logujesz się przez Discord OAuth (jedyna metoda) |
 | **Konto Star Citizen / handle RSI** | LYNX synchronizuje członków Twojej organizacji z RSI |
-| **Zaproszenie do LYNX** (invite token) | Pierwsze logowanie wymaga linka zapraszającego od kogoś, kto już jest w systemie |
+| **Link zaproszenia** (nieobowiązkowy) | Tylko jeśli chcesz od razu wejść do konkretnej organizacji. Bez niego zakładasz konto solo |
 | **Windows 10 (build 17763+) lub Windows 11, architektura x64** | Aplikacja jest natywnie windowsowa |
 | **~500 MB wolnego miejsca** | Self-contained .NET 8 + zależności |
 | **Mikrofon** | Do gadania przez Mumble |
 | **Star Citizen w trybie Borderless Fullscreen** | Overlay rysuje nad grą — w Exclusive Fullscreen nie będzie widoczny |
 
-### Skąd wziąć invite token?
+### Link zaproszenia: skąd go wziąć i czy jest potrzebny
 
-Zaproszenie wystawia ktoś, kto już jest w organizacji LYNX (kapitan / dowódca).
-Link wygląda tak:
+Link zaproszenia wystawia organizacja, do której dołączasz: jej zarząd albo
+ranga z prawem zapraszania (na stronie w Bazie organizacji, w nakładce
+w MobiGlass, w kartach REKRUTACJA i ZESPÓŁ). Link wygląda tak:
 
 ```
-https://lynxcommander.pl/login?invite=ABCD1234EFGH5678
+https://lynxcommander.pl/login?invite=LYNX-A1B2C3D4
 ```
 
-Bez tokena pierwsze logowanie zwróci błąd `missing_invite` lub
-`invalid_invite`. Po pierwszej pomyślnej autoryzacji Twoje konto Discord
-jest zapamiętane — kolejne logowania **nie wymagają** już tokena.
+Link działa jeden raz i jest ważny 7 dni. Kto zaloguje się przez niego po raz
+pierwszy, od razu jest członkiem tej organizacji, bez podania.
 
-Masz już konto, ale bez organizacji? Otwórz link zaproszenia i zaloguj się
-przez niego jeszcze raz — konto zostanie dopisane do organizacji, która
-wystawiła link. Konta, które już należy do organizacji, link nie przenosi.
+**Nie masz linku? Nie jest potrzebny, żeby zacząć.** Zaloguj się przez Discorda
+bez linku, a na ekranie startowym wybierzesz:
+
+- **Gram sam** (solo): nakładka, skanery, crafting i doraźne grupy z głosem,
+  bez organizacji;
+- **Chcę dołączyć do organizacji**: lista organizacji z otwartym naborem.
+  Wysyłasz podanie, a rozpatrują je osoby wyznaczone w organizacji. Do czasu
+  przyjęcia grasz jak solo;
+- **Zakładam organizację**: kreator nowej organizacji.
+
+Link albo sam kod (np. `LYNX-A1B2C3D4`) wkleisz też później, na ekranie
+startowym albo na stronie Rekrutacja. Możesz też otworzyć link i zalogować się
+przez niego jeszcze raz: konto bez organizacji zostanie dopisane do organizacji,
+która wystawiła link. Konta, które należy już do innej organizacji, link nie
+przenosi; najpierw trzeba z niej wyjść.
+
+Po pierwszym logowaniu Twoje konto Discord jest zapamiętane i kolejne
+logowania nie wymagają linku.
 
 ---
 
 ## 3. Krok 1 — Pierwsze logowanie na stronie
 
-1. Otwórz w przeglądarce link zapraszający, który dostałeś od kapitana:
+1. Otwórz w przeglądarce https://lynxcommander.pl/login albo link
+   zaproszenia, jeśli dostałeś go od organizacji:
    ```
-   https://lynxcommander.pl/login?invite=TwojToken
+   https://lynxcommander.pl/login?invite=LYNX-A1B2C3D4
    ```
 
 2. Zobaczysz ekran "C&C Net Gateway" z dużym przyciskiem **"Zainicjuj
@@ -95,12 +101,14 @@ wystawiła link. Konta, które już należy do organizacji, link nie przenosi.
 
 3. Discord OAuth poprosi o autoryzację. Zgódź się.
 
-4. Po powrocie z Discorda zostaniesz przeniesiony do panelu (Dashboard).
-   Na pasku bocznym po lewej zobaczysz menu sekcji: Konto & Organizacja,
-   Party, Operacje, Informacje.
+4. Po powrocie z Discorda konto z linku zaproszenia trafia do panelu
+   organizacji. Konto bez organizacji trafia na ekran startowy: nick z gry,
+   wybór drogi (solo, nabory organizacji albo własna organizacja)
+   i instalacja nakładki.
 
-> ⚠️ Jeśli zobaczysz błąd **"Token rekrutacyjny wygasł lub jest nieprawidłowy"** —
-> token jest jednorazowy lub stracił ważność. Poproś kapitana o nowy.
+> ⚠️ Jeśli zobaczysz błąd, że **token rekrutacyjny wygasł, został zużyty lub
+> jest nieprawidłowy**, link był już użyty albo minęło 7 dni. Poproś organizację
+> o nowy albo zaloguj się bez linku i dołącz przez nabór.
 
 ---
 
@@ -108,29 +116,22 @@ wystawiła link. Konta, które już należy do organizacji, link nie przenosi.
 
 Instalator pobierzesz bez logowania:
 
-1. Otwórz https://lynxcommander.pl/pobierz (zalogowany znajdziesz ją też w bocznym menu, sekcja **INFORMACJE**, **"Strona pobierania"**).
-2. Kliknij duży niebieski przycisk **"Pobierz LynxInstaller.exe"** — plik
-   zapisze się w `Pobrane`/`Downloads`.
-3. Dwukrotnie kliknij pobrany plik.
+1. Otwórz https://lynxcommander.pl/pobierz (po zalogowaniu znajdziesz tę stronę też w menu, sekcja **Informacje**, **„Pobieranie nakładki”**).
+2. Kliknij **„Pobierz LynxInstaller.exe”**. Plik zapisze się w `Pobrane`/`Downloads`.
+3. Uruchom pobrany plik. Strona pobierania ma też listę „Instalacja krok po kroku” i sama pokaże, że nakładka połączyła się z Twoim kontem.
 
-> ⚠️ **Windows SmartScreen ostrzeże przy pierwszym uruchomieniu.**
-> Zobaczysz okno *"Windows zapobiegł uruchomieniu nierozpoznanej aplikacji"*.
-> To normalne — nasz certyfikat nie jest jeszcze w globalnej liście Microsoftu.
-> Kliknij **"Więcej informacji"** → **"Uruchom mimo to"**.
+> ⚠️ **Windows SmartScreen może ostrzec przy pierwszym uruchomieniu.**
+> Zobaczysz okno *„Windows zapobiegł uruchomieniu nierozpoznanej aplikacji”*.
+> To normalne: nasz certyfikat nie jest na globalnej liście Microsoftu.
+> Kliknij **„Więcej informacji”** → **„Uruchom mimo to”**. Podpis możesz sprawdzić sam (opis na stronie pobierania i w sekcji 11).
 
 W instalatorze:
 
-1. **Zaznacz checkbox** *"Akceptuję Regulamin i Politykę Prywatności"*
-   (linki w okienku otwierają dokumenty w przeglądarce — możesz przeczytać
-   przed akceptacją).
-2. Kliknij **"ZAINSTALUJ"**.
+1. Wybierz język (polski, angielski albo czeski).
+2. **Zaznacz** *„Akceptuję Regulamin i Politykę Prywatności”* (dokumenty otworzysz i przeczytasz przed akceptacją).
+3. Przejdź dalej przyciskiem głównym, aż dojdziesz do **„ZAINSTALUJ”**.
 
-Instalator pobiera aplikację, sprawdza jej podpis cyfrowy (bez UAC — wszystko
-dzieje się w tle) i uruchamia LYNX Commander automatycznie. Całość ~30 sekund.
-
-> 💡 Plik instalatora jest dostępny **tylko po zalogowaniu** — nie krąży
-> w otwartym internecie. To jest celowe (chronimy graczy i utrudniamy
-> podszywanie się pod naszą wersję).
+Instalator pobiera aplikację, sprawdza jej podpis cyfrowy (bez UAC) i uruchamia LYNX Commander. Nakładka aktualizuje się potem sama.
 
 ---
 
@@ -138,88 +139,53 @@ dzieje się w tle) i uruchamia LYNX Commander automatycznie. Całość ~30 sekun
 
 Są dwie ścieżki:
 
-### 🟢 Ścieżka szybka (zalecana) — "Otwórz w aplikacji"
+### 🟢 Ścieżka szybka (zalecana) — „Otwórz w aplikacji”
 
-Jeśli jesteś już zalogowany na **lynxcommander.pl**, wróć na **stronę
-pobierania** — pojawi się tam zielony panel *"Masz już zainstalowaną
-aplikację?"* z przyciskiem **"Otwórz w aplikacji"**. Klik → przeglądarka
-zapyta o pozwolenie uruchomienia linka `lynxcommander://` → kliknij
-"Otwórz" → aplikacja podnosi się **zalogowana**, bez ponownego Discord
-OAuth. Zobaczysz krótki splash z dźwiękiem, potem HUD.
+Jeśli jesteś już zalogowany na **lynxcommander.pl**, wróć na **stronę pobierania**. Zobaczysz panel *„Masz już zainstalowaną aplikację?”* z przyciskiem **„Otwórz w aplikacji”**. Kliknij, a przeglądarka zapyta o pozwolenie na otwarcie linku `lynxcommander://`. Zgódź się, a aplikacja uruchomi się **zalogowana**, bez ponownego logowania przez Discord.
 
 ### 🟡 Ścieżka standardowa — logowanie w aplikacji
 
-Jeśli z jakiegoś powodu nie kliknąłeś "Otwórz w aplikacji" (np. uruchomiłeś
-aplikację ze skrótu na pulpicie), aplikacja sama otworzy osadzone okno
-logowania Discord. Zaloguj się **tym samym kontem Discord** — po sukcesie
-zobaczysz *"WITAJ, [TwojNick]"* i HUD.
+Jeśli uruchomisz aplikację z menu Start albo ze skrótu, otworzy się okno logowania Discord. Zaloguj się **tym samym kontem Discord**.
 
-W obu przypadkach token sesyjny jest zapisywany lokalnie i szyfrowany
-kluczem Twojego konta Windows. **Kolejne uruchomienia są automatyczne**
-— bez logowania.
+W obu przypadkach sesja jest zapisywana lokalnie i szyfrowana kluczem Twojego konta Windows, więc **kolejne uruchomienia są automatyczne**.
 
-> 💡 **Aplikacja nie prosi o instalację żadnego certyfikatu.** Jeśli starsza
-> wersja instalatora dodała nasz certyfikat do zaufanych w Windows, możesz go
-> usunąć przyciskiem w Ustawienia → O aplikacji.
+> 💡 **Aplikacja nie prosi o instalację żadnego certyfikatu.** Jeśli starsza wersja instalatora dodała nasz certyfikat do zaufanych w Windows, usuniesz go przyciskiem w Ustawienia → ☕ WSPARCIE.
 
 ---
 
 ## 6. Krok 4 — Krótka konfiguracja (opcjonalna)
 
-> 💡 **Przy pierwszym uruchomieniu HUD pokaże Ci 5 krótkich tipów na start**
-> (toasty po prawej stronie, każdy ~10 sekund). Zobaczysz informacje
-> o widżecie załogi, klawiszach F11/F12 i Push-to-Talk. To dzieje się
-> **raz w życiu instalacji** — kolejne uruchomienia są ciche.
+> 💡 **Przy pierwszym uruchomieniu nakładka pokaże samouczek:** skróty na start, układ paneli, głos i opcjonalnie logi gry. Możesz go pominąć, a później uruchomić ponownie w Ustawienia → ☕ WSPARCIE (karta SAMOUCZEK) albo z menu ikony LYNX przy zegarze.
 
-> 💡 **Gdy uruchomisz Star Citizen po raz pierwszy** z LYNX-em, dostaniesz
-> jednorazowy toast: *"Overlay LYNX wymaga trybu Borderless Fullscreen"*.
-> To dlatego, że w trybie *Exclusive Fullscreen* Windows zasłania wszystkie
-> nakładki — więc nie zobaczysz HUD-u LYNX-a. Zmień **Display Mode** w grze
-> na **Borderless** (Settings → Graphics → Display Mode).
+> 💡 **Star Citizen musi działać w oknie bez ramki.** W grze otwórz **Graphics → Window Mode** i wybierz **Borderless**. W trybie Fullscreen Windows zasłania nakładki i paneli nie widać, choć nakładka działa. Dopóki gra jest wyłączona, panele są schowane i pokażą się same, gdy nakładka wykryje Star Citizen.
 
-Po pierwszym uruchomieniu **wszystkie domyślne ustawienia działają**,
-więc możesz od razu zacząć grać. Jeśli jednak chcesz dopasować apkę do
-siebie — otwórz **Settings** (ikonka z lewej strony lub menu).
+Po pierwszym uruchomieniu **domyślne ustawienia działają**, więc możesz od razu grać. Jeśli chcesz dopasować nakładkę, otwórz **Ustawienia** z menu ikony LYNX przy zegarze.
 
 Trzy ustawienia, które warto sprawdzić od razu:
 
 | Ustawienie | Gdzie | Co warto |
 |---|---|---|
-| **Mikrofon** | 🎙️ Komunikacja Głosowa → "Urządzenie wejściowe" | Wybrać właściwy mic + kliknąć **"TEST MIKROFONU"** |
-| **Klawisz PTT** | ⌨️ Skróty → "Mumble PTT" | Domyślnie **CapsLock** — przepnij na boczny przycisk myszy (Mouse4/Mouse5), bo CapsLock w Star Citizen otwiera MobiGlas-a |
-| **Monitor overlay** | 🖥️ Wyświetlanie | Wybrać monitor, na którym faktycznie odpalasz Star Citizen |
+| **Mikrofon** | 🎙️ DŹWIĘK | Wybrać właściwy mikrofon i słuchawki, kliknąć **„TEST MIKROFONU (LIVE)”** |
+| **Klawisz PTT** | 🎙️ DŹWIĘK | Domyślnie **CapsLock**. Wygodniej przypiąć boczny przycisk myszy (Mouse4/Mouse5) |
+| **Monitor** | PANELE I TRYBY | „Monitor główny nakładki i skanowania”: wybierz ten, na którym grasz |
 
-To wszystko — pozostałe rzeczy ustawisz kiedy zajdzie potrzeba. Domyślnie
-działają też skróty **F12** (pokaż/ukryj overlay) i **F11** (przełącz kursor
-na overlay — gdy chcesz coś kliknąć w widżetach).
+Skróty do reszty (skany, koło szybkiego wyboru, MobiGlass) ustawisz w zakładce ⌨️ SKRÓTY. Domyślnie działają **F12** (pokaż/ukryj nakładkę) i **F11** (tryb interakcji: panele dają się klikać, a mysz nie trafia do gry). Pozostałe skróty są na starcie nieustawione.
 
 ---
 
-## 7. Krok 5 — Pierwsza sesja z drużyną
+## 7. Krok 5 — Pierwsza sesja z innymi
 
-1. **Wejdź na panel web** (`lynxcommander.pl`) i wybierz lub stwórz Party
-   w sekcji "Party" → "Squad Room".
+1. **Dołącz do pokoju głosowego.** W organizacji wybierz pokój na karcie **GŁOS** w MobiGlass (otwiera go dzwonek przy panelach w trybie interakcji, **F11**). Bez organizacji wejdź na kartę **GRUPY**: dołączysz do publicznej grupy z głosem albo założysz własną.
 
-2. **Aplikacja desktop** automatycznie dostanie sygnał o zmianie party
-   i przełączy Cię w odpowiedni kanał Mumble. Zobaczysz to w widżecie
-   "Crew Status" — będą tam członkowie drużyny.
+2. **Mów.** Przytrzymaj **CapsLock** (albo skrót, który ustawiłeś). Pozostałe osoby w pokoju usłyszą Cię w Mumble.
 
-3. **Mów** — przytrzymaj **CapsLock** (albo skrót, który ustawiłeś).
-   Inni członkowie usłyszą Cię w Mumble.
+3. **Zmień status.** Na karcie **MÓJ STATUS** (albo w kole szybkiego wyboru) oznaczysz się jako *Engaging Target*, *Bingo Fuel*, *Damaged* itp. W organizacji zestaw zależy od Twojej rangi. Inni zobaczą to od razu na swoich ekranach.
 
-4. **Zmień status** — w widżecie Crew Status możesz oznaczyć siebie jako
-   *Engaging Target* / *Bingo Fuel* / *Damaged* itp. (zestaw zależy od
-   Twojej rangi w organizacji). Inni od razu zobaczą to na swoich
-   ekranach.
+4. **Skan IFF.** Gdy widzisz innego gracza, naciśnij skrót skanu (ustawisz go w ⌨️ SKRÓTY, na starcie jest pusty). Nakładka odczyta nick z ekranu, zapyta serwer i pokaże gracza razem z jego organizacjami. W organizacji dochodzi oznaczenie wróg/sojusznik według wspólnej listy; solo skaner pokazuje samego gracza.
 
-5. **Friend/Foe scan** — w grze, gdy widzisz innego gracza, naciśnij skrót
-   skanu. Aplikacja zrobi screenshot wybranego obszaru ekranu, wyciągnie
-   nick OCR-em i sprawdzi w bazie organizacji — wyświetli tag *FRIEND* /
-   *HOSTILE* / *NEUTRAL* w widżecie Friend/Foe.
+5. **Ready check.** Prowadzący sprawdza gotowość grupy, a Ty potwierdzasz albo odmawiasz skrótem (domyślnie `[` i `]`) lub w nakładce.
 
-> 💡 **Pierwszy raz odpalasz w grze?** Najpierw odpal **Star Citizen
-> w trybie Borderless Fullscreen** (Settings → Graphics → Display Mode →
-> Borderless). W trybie *Exclusive Fullscreen* overlay nie będzie widoczny.
+> 💡 **Pierwszy raz w grze z nakładką?** Najpierw ustaw w Star Citizen **Graphics → Window Mode → Borderless**. W trybie Fullscreen paneli nie widać.
 
 ---
 
@@ -227,15 +193,18 @@ na overlay — gdy chcesz coś kliknąć w widżetach).
 
 | Funkcja | Co robi | Gdzie ją znajdziesz |
 |---|---|---|
-| **Crew Status Widget** | Statusy załogi w czasie rzeczywistym | Na ekranie po włączeniu overlay (F12) |
-| **Friend/Foe Widget** | Klasyfikacja widzianych graczy | Wymaga ustawienia obszaru skanu w Settings |
-| **Mumble VoIP** | Komunikacja głosowa z drużyną | Auto-łączy po wejściu w party |
-| **Koło szybkiego wyboru** | Statusy, rozkazy, wyciszenie mikrofonu i Mumble, kanały dwóch przycisków radia, beacony, Ready Check i skany pod jednym klawiszem | Settings → Skróty → Koło szybkiego wyboru |
-| **Mission Board** | Zlecenia taktyczne dla drużyny | Panel web → "Operacje" → "Zlecenia Taktyczne" |
-| **Fleet Builder** | Planowanie składu flot (uprawnienia) | Panel web → "Operacje" → "Planer operacji" |
-| **Organization Database** | Spis członków organizacji | Panel web → "Konto & Organizacja" → "Baza Organizacji" |
-| **Rock Scanner** | OCR skanera skał (mining) | Wymaga konfiguracji obszaru w Settings |
-| **Contract Tracker** | Tracking zleceń podczas misji | Widżet w HUD + przycisk Track w panelu web |
+| **Panele HUD i MobiGlass** | Statusy, powiadomienia i karty na jednym ekranie nad grą | Nakładka: F12 pokazuje, F11 włącza tryb interakcji |
+| **Głos (Mumble)** | Radio z niską latencją, pokoje, rozmowy 1:1, „kto mówi” | Karta GŁOS |
+| **Grupy** | Publiczne grupy z głosem i ready checkiem, także bez organizacji | Karta GRUPY |
+| **Koło szybkiego wyboru** | Statusy, rozkazy, wyciszenie mikrofonu i Mumble, kanały dwóch przycisków radia, beacony, Ready Check i skany pod jednym klawiszem | Ustawienia → ⌨️ SKRÓTY |
+| **Skaner IFF** | Rozpoznaje gracza i jego organizacje; w organizacji oznacza wroga i sojusznika | Skrót w ⌨️ SKRÓTY |
+| **Skaner skał** | OCR skał dla górnictwa | Skrót w ⌨️ SKRÓTY, karta SKANER |
+| **Crafting, Beacony, Mapa** | Schematy i materiały, zapisane miejsca z nawigacją, mapa 3D | Karty CRAFTING, BEACONY, MAPA |
+| **Kontrakty, Misje, Operacje** | Zlecenia, misje na żywo, plan i przebieg operacji (dla organizacji) | Karty KONTRAKTY, MISJE, OPERACJE; strona: Kontrakty, Tablica misji, Kreator misji, Operacje |
+| **Organizacja** | Baza członków, role, rekrutacja i zaproszenia | Strona: Centrum organizacji, Baza organizacji, Rekrutacja; nakładka: karty ZESPÓŁ i REKRUTACJA |
+| **Profil i hangar** | Nick z gry, statki, znajomi | Strona: Profil operacyjny, Znajomi; nakładka: karty PROFIL, HANGAR, ZNAJOMI |
+
+Część kart i funkcji działa tylko w organizacji. Gracz solo ma skanery, crafting, beacony, timery, znajomych i grupy z głosem.
 
 **Koło szybkiego wyboru** ma zawsze 8 pól i każde pole stoi zawsze w tym samym
 kierunku, więc po kilku grach trafiasz z pamięci. Pierwsza strona:
@@ -285,58 +254,41 @@ na gałąź.
 
 ## 9. Częste problemy
 
-### "Nie słyszę nikogo w Mumble"
+### „Nie słyszę nikogo w Mumble”
 
-1. Czy jesteście w tym samym **pokoju Mumble**? Sprawdź widżet Crew Status —
-   pokazuje aktualny pokój.
-2. Czy wybrane **urządzenie wyjściowe** w Settings → "🎙️ Komunikacja
-   Głosowa" jest właściwe (głośniki / słuchawki, których faktycznie używasz)?
-3. Czy głośność Mumble nie jest na 0%? Settings → Komunikacja Głosowa →
-   suwak "Głośność Wyjściowa".
+1. Czy jesteście w tym samym **pokoju**? Karta **GŁOS** pokazuje, w którym stoisz.
+2. Czy wybrane **urządzenie wyjściowe** w Ustawienia → 🎙️ DŹWIĘK jest właściwe (głośniki lub słuchawki, których używasz)?
+3. Czy głośność nie jest na 0%? Ustawienia → 🎙️ DŹWIĘK → **„Głośność Odbioru (Global)”**. Głośność pojedynczej osoby ustawisz na jej wpisie w składzie.
 
-### "Mikrofon nie działa / nikt mnie nie słyszy"
+### „Mikrofon nie działa / nikt mnie nie słyszy”
 
-1. Settings → Komunikacja Głosowa → **wybierz właściwy mikrofon**.
-2. Sprawdź skrót PTT (Settings → Skróty → Mumble PTT). Domyślnie CapsLock.
-3. Kliknij przycisk **"TEST MIKROFONU"** — powinieneś zobaczyć ruchomy
-   pasek poziomu gdy mówisz.
-4. Jeśli używasz NVIDIA Broadcast / Discord Krisp / Voicemod — upewnij się
-   że ich wirtualne urządzenia są poprawnie skierowane.
+1. Ustawienia → 🎙️ DŹWIĘK → **wybierz właściwy mikrofon**.
+2. Sprawdź klawisz PTT w tej samej zakładce. Domyślnie CapsLock.
+3. Kliknij **„TEST MIKROFONU (LIVE)”**: podczas mówienia pasek poziomu powinien się ruszać.
+4. Jeśli używasz NVIDIA Broadcast, Krisp albo Voicemod, upewnij się, że ich wirtualne urządzenia są poprawnie wskazane.
 
-### "Overlay nie pokazuje się w grze"
+### „Nakładka nie pokazuje się w grze”
 
-1. Star Citizen MUSI być w trybie **Borderless Fullscreen**, nie
-   Exclusive Fullscreen.
-2. Naciśnij skrót **F12** żeby zatogglować overlay.
-3. Sprawdź czy wybrałeś właściwy monitor w Settings → "🖥️ Wyświetlanie".
-4. Jeśli używasz wielu kart graficznych / dwóch monitorów z różnym DPI —
-   restart aplikacji często pomaga.
+1. Star Citizen MUSI działać w **Graphics → Window Mode → Borderless**, nie w Fullscreen.
+2. Naciśnij **F12**, żeby pokazać albo ukryć nakładkę. Dopóki gra jest wyłączona, panele są schowane.
+3. Sprawdź monitor: Ustawienia → PANELE I TRYBY → „Monitor główny nakładki i skanowania”.
+4. Przy wielu kartach graficznych albo monitorach o różnym DPI często pomaga restart aplikacji.
 
-### "SmartScreen / Antywirus blokuje aplikację"
+### „SmartScreen / antywirus blokuje aplikację”
 
-1. SmartScreen — zobacz krok 3 powyżej. Kliknij "Więcej informacji →
-   Uruchom mimo to".
-2. Antywirus (Defender, Avast, Bitdefender) — czasem oznaczają nieznane
-   binarki jako podejrzane (heurystyka, nie sygnatura). Dodaj
-   `%LOCALAPPDATA%\LYNXCommander\` do wyjątków.
-3. Aplikacja jest podpisana cyfrowo — sprawdź `Properties` na
-   `LynxOverlay.exe` → zakładka "Digital Signatures" → "LYNXCommander
-   Project, valid".
+1. SmartScreen: zobacz krok 2 powyżej. Kliknij „Więcej informacji” → „Uruchom mimo to”.
+2. Antywirus (Defender, Avast, Bitdefender) czasem oznacza nieznane binarki jako podejrzane (heurystyka, nie sygnatura). Dodaj `%LOCALAPPDATA%\LynxOverlay\` do wyjątków.
+3. Aplikacja jest podpisana cyfrowo: `Properties` na `LynxOverlay.exe` → „Digital Signatures” → „LYNXCommander Project, valid”.
 
-### "Aplikacja się crashuje / nie startuje"
+### „Aplikacja się crashuje / nie startuje”
 
-Settings → **"☕ Wsparcie"** → **"WYŚLIJ RAPORT DIAGNOSTYCZNY"**. Spakuje
-logi w ZIP i prześle na nasz kanał diagnostyczny — dev-team dostanie
-wszystko czego potrzebuje, żeby zdiagnozować problem. Bez ręcznego
-kombinowania z plikami.
+Ustawienia → **🩺 DIAGNOSTYKA** → **„WYŚLIJ RAPORT DIAGNOSTYCZNY”** spakuje logi i prześle je zespołowi razem ze zgłoszeniem. Błąd albo pomysł możesz też opisać przyciskiem **🐞 ZGŁOŚ BŁĄD** w Ustawieniach albo na stronie w **Pomoc i zgłoszenia**.
 
-### "Discord OAuth nie kończy się / wraca z błędem"
+### „Logowanie przez Discord nie kończy się / wraca z błędem”
 
-1. Sprawdź czy używasz **zaproszenia z aktualnym tokenem** (token jest
-   jednorazowy / wygasa).
+1. Jeśli logujesz się z linku zaproszenia, sprawdź, czy jest aktualny (działa raz i 7 dni). Bez linku logowanie też działa: powstaje konto solo.
 2. Wyloguj się z Discorda w przeglądarce i zaloguj ponownie.
-3. Spróbuj w trybie incognito / innej przeglądarce — czasem rozszerzenia
-   blokują OAuth flow.
+3. Spróbuj w trybie incognito albo w innej przeglądarce: rozszerzenia czasem blokują logowanie.
 
 ---
 
@@ -348,7 +300,7 @@ kombinowania z plikami.
 | **GitHub Issues** | Zgłoszenie buga (techniczny) |
 | **GitHub Security Advisory** | Zgłoszenie podatności bezpieczeństwa |
 | **E-mail support** | Sprawy licencyjne / komercyjne / wrażliwe |
-| **W aplikacji** | Settings → "ℹ️ O APLIKACJI" — wszystkie linki w jednym miejscu |
+| **W aplikacji** | Ustawienia → ☕ WSPARCIE — wszystkie linki w jednym miejscu |
 
 Dokładne adresy znajdziesz w [README na GitHubie](https://github.com/Oriinks/LYNXCommander-public#kontakt-i-wsparcie).
 
@@ -402,8 +354,7 @@ Publikujemy go w **3 niezależnych miejscach**:
 Jeśli wszystkie trzy miejsca pokazują **tę samą wartość** — masz mocne
 potwierdzenie, że nikt nie podszywa się pod naszą aplikację (atakujący
 musiałby przejąć jednocześnie GitHub, domenę i Discord). W aplikacji
-możesz też kliknąć **Settings → ☕ Wsparcie / O Aplikacji → "Weryfikuj
-integralność instalacji"** — odpalimy automatyczne sprawdzenie SHA-256
+możesz też kliknąć **Ustawienia → ☕ WSPARCIE → „WERYFIKACJA INTEGRALNOŚCI INSTALACJI”** — odpalimy automatyczne sprawdzenie SHA-256
 binarki względem manifestu wydania.
 
 **Jeśli mimo wszystko CIG kiedyś zinterpretuje narzędzie taktycznego
@@ -420,18 +371,12 @@ w [LICENSE](/legal/license).
 
 ## Co dalej
 
-Po pierwszej sesji z drużyną, warto:
+Po pierwszej sesji warto:
 
-- 📖 Przeczytać [Regulamin](/legal/terms) — krótki, w prostym języku, mówi
-  jasno co aplikacja robi i czego NIE.
-- 🎛️ Pobawić się skrótami w Settings → "⌨️ Skróty" — dostosuj pod swoje
-  zwyczaje (klawisze boczne myszy, joystick HOTAS, pad Xbox i dwa takie same
-  drążki naraz są obsługiwane). W „Urządzenia i osie” nadasz drążkom nazwy,
-  zamienisz ich numery i ustawisz martwą strefę osi.
-- 🎯 Skonfigurować obszary skanowania OCR pod swoją rozdzielczość — to
-  jednorazowe ustawienie, które bardzo poprawia działanie Friend/Foe scanu.
-- 🎨 Przesunąć widżety HUD myszką do wygodnych miejsc — wciśnij **F11**
-  (toggle interactivity), wtedy widżety stają się ruchome.
+- 📖 Przeczytać [Regulamin](/legal/terms): krótki, w prostym języku, mówi jasno, co aplikacja robi i czego NIE.
+- 🎛️ Pobawić się skrótami w Ustawienia → ⌨️ SKRÓTY (obsługiwane są klawisze boczne myszy, joystick HOTAS, pad Xbox i dwa takie same drążki naraz). W „Urządzenia i osie” nadasz drążkom nazwy, zamienisz ich numery i ustawisz martwą strefę osi.
+- 🎯 Ustawić skrót skanu IFF i skał oraz sprawdzić, czy skan trafia w nick na Twojej rozdzielczości.
+- 🎨 Ułożyć panele w wygodnych miejscach (tryb układania paneli w nakładce).
 
 Powodzenia w lotach! 🚀
 
