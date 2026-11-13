@@ -214,7 +214,7 @@ kierunku, więc po kilku grach trafiasz z pamięci. Pierwsza strona:
 | 1 ↑ | Statusy |
 | 2 ↗ | Rozkazy |
 | 3 → | Wyciszenie: **Mój mikrofon** (nie nadajesz) albo **Dźwięk Mumble** (nie słyszysz nikogo; wycisza też mikrofon) |
-| 4 ↘ | Głos: cel (kanał, cała gałąź, cały serwer), potem Przycisk 1 albo Przycisk 2 |
+| 4 ↘ | Głos: cel (kanał, cała gałąź, cała organizacja), potem Przycisk 1 albo Przycisk 2 |
 | 5 ↓ | Beacony: zapis, wpisanie `/showlocation`, nawigacja, wybór celu |
 | 6 ↙ | Ready Check (lider) |
 | 7 ← | Skany IFF i skał, MobiGlass, ukrycie nakładki, ustawienia |
@@ -238,17 +238,22 @@ Przycisk 2 (Settings → Skróty, „Przycisk 2 — drugie radio”) działa tak
 na własny cel, jak drugie radio. Cel wybierasz w kole: **Głos → kanał → Przycisk 1 /
 Przycisk 2**. Przycisk 1 przechodzi na wybrany kanał, przycisk 2 zostawia Cię tam, gdzie
 jesteś, i tylko nadaje na wybrany kanał. Na liście jest też kanał piętro wyżej (↑), cała
-gałąź i cały serwer. Domyślnie przycisk 2 nadaje na całą gałąź.
+gałąź i cała organizacja. Domyślnie przycisk 2 nadaje na całą gałąź.
 
 Gdy celem przycisku 2 jest jeden kanał, słyszysz też wszystkich, którzy na nim mówią,
 choć na nim nie stoisz. Działa to jak wspólna częstotliwość: gracze z różnych pokoi,
 którzy mają ten sam kanał na przycisku 2, słyszą się nawzajem, nawet gdy na samym kanale
 nikt nie stoi. Tak masz łączność na dwa kanały naraz: przyciskiem 1 mówisz na swój kanał,
 przyciskiem 2 na drugi, a słyszysz oba. Wskaźnik pokazuje wtedy dopisek
-„(słyszysz)” przy celu PTT 2. Cała gałąź i cały serwer działają jak dotąd: przycisk 2
+„(słyszysz)” przy celu PTT 2. Cała gałąź i cała organizacja działają jak dotąd: przycisk 2
 na nie nadaje, ale ich nie słuchasz. Kanał przycisku 2 trwa
 do zmiany pokoju; po restarcie nakładki przycisk 1 wraca na własny kanał, a przycisk 2
 na gałąź.
+
+**Szept globalny.** Osobny klawisz (Settings → Skróty, „Szept globalny”), niezależny od
+przycisków 1 i 2: póki go trzymasz, mówisz naraz do całej organizacji, czyli do wszystkich
+pokoi party i kanałów operacji. Nie przenosi Cię z kanału. Inne organizacje i pokoje
+publiczne go nie słyszą, a gracz bez organizacji nie nadaje nim nigdzie.
 
 ---
 
