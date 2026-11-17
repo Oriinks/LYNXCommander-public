@@ -1,6 +1,6 @@
 # Polityka prywatności — LYNXCommander
 
-_Wersja: 1.8 · Data wejścia w życie: 2026-09-16 · Aktualizacja: 2026-11-10 (kroki ekranu powitalnego w statystykach, sekcja 9)_
+_Wersja: 1.9 · Data wejścia w życie: 2026-09-16 · Aktualizacja: 2026-11-17 (diagnoza crasha gry w nakładce, sekcja 2.3)_
 
 Niniejszy dokument opisuje, jakie dane LYNXCommander zbiera, gdzie je przetwarza,
 komu je przekazuje i jak długo je przechowuje. Pisaliśmy go po polsku i w prostym
@@ -122,6 +122,7 @@ uprawnień.
 | Informacja o nieczystym zamknięciu (wersja aplikacji, system, ilość pamięci, końcówka logu) | Przy następnym starcie po nieczystym ubiciu procesu, jeśli raporty błędów są włączone | Serwer LYNX (baza telemetrii) | Wykrywanie problemów stabilności |
 | Paczka diagnostyczna ZIP (logi aplikacji, ustawienia bez sekretów, podstawowe dane systemu) | Tylko kiedy świadomie klikniesz „Wyślij raport” | Serwer LYNX (przechowywana 90 dni) | Wsparcie techniczne |
 | Automatyczny raport błędu (typ wyjątku, komunikat, stacktrace, wersja aplikacji) | Automatycznie, gdy w aplikacji wystąpi błąd (domyślnie włączone; wyłączysz w Ustawienia → Diagnostyka; kto miał je wyłączone we wcześniejszych wersjach, dostaje raz pytanie) | Serwer LYNX (baza telemetrii) | Wykrywanie błędów, o których nikt nie zgłasza, i porównywanie stabilności wydań |
+| Rekord crasha gry Star Citizen (rodzaj i kod awarii, odcisk CIG, wersja gry, model karty i sterownik, ilość pamięci, długość sesji, nazwy programów wpiętych w obraz gry, dzień crasha) | Tylko po crashu gry i tylko gdy włączysz osobną zgodę „Wysyłaj anonimowe dane o crashach gry” (domyślnie wyłączona; Ustawienia → Diagnostyka) | Serwer LYNX (baza telemetrii) | Policzenie, ilu graczy ma ten sam crash, i podpowiedź „to błąd tej wersji gry” |
 | Końcówka logu dołączona do zgłoszenia błędu | Tylko gdy wysyłasz zgłoszenie z zaznaczonym polem „Dołącz logi diagnostyczne" (domyślnie zaznaczone, możesz odznaczyć) | Serwer LYNX → zgłoszenie w OpenProject | Ustalenie przyczyny zgłoszonego problemu |
 | `mumble_debug.txt` | Lokalnie, zawsze | `%APPDATA%\LynxOverlay\` lub katalog aplikacji | Debug Mumble (rotowany lokalnie, nigdzie nie wysyłany automatycznie) |
 | Settings (preferencje overlay) | Lokalnie | `%APPDATA%\LynxOverlay\settings.json` | Twoje preferencje, niewysyłane na serwer |
@@ -135,6 +136,14 @@ trafiają na nasz serwer. Gdy pojawi się nowy błąd albo paczka, nasz system m
 API, adresy webhooków, nazwę Twojego konta Windows (także w ścieżkach `C:\Users\...`)
 i nazwę komputera. Do paczki **nie dołączamy** zrzutu pamięci (minidump); zostaje on
 tylko na Twoim dysku. Paczki diagnostyczne może pobrać wyłącznie administrator.
+
+**Diagnoza crasha gry.** Po crashu Star Citizena nakładka czyta raport, który gra sama
+dopisuje na końcu `Game.log` (tylko przy włączonym monitorowaniu logów gry, sekcja 2.6),
+i pokazuje Ci rodzaj awarii ze wskazówkami. To działa wyłącznie na Twoim komputerze.
+Do LYNX trafia krótki rekord techniczny tylko przy osobnej zgodzie: bez nicku, bez treści
+logu, bez ścieżek na dysku, bez pozycji w grze i bez zrzutu pamięci (`error.dmp` zostaje
+u Ciebie). Rekordy leżą razem z raportami błędów i znikają albo tracą powiązanie z kontem
+tak jak one.
 
 **Automatyczne raporty błędów** zawierają wyłącznie dane techniczne: typ wyjątku,
 komunikat, ślad stosu, nazwę modułu i wersję aplikacji. Przed wysyłką usuwamy z nich
@@ -429,7 +438,7 @@ w aplikacji.
 
 ---
 
-_Ostatnia aktualizacja: 2026-11-10 (v1.8 — sekcja 9: kroki ekranu powitalnego w statystykach; v1.7 — sekcja 9: statystyki odwiedzin strony bez cookies; v1.6 — sekcja 2.8: bot Discorda i konta gości; v1.5 — dziennik instalatora, wybór przy odinstalowaniu, wersje angielska
+_Ostatnia aktualizacja: 2026-11-17 (v1.9 — sekcja 2.3: diagnoza crasha gry i osobna zgoda na wysyłkę rekordu; v1.8 — sekcja 9: kroki ekranu powitalnego w statystykach; v1.7 — sekcja 9: statystyki odwiedzin strony bez cookies; v1.6 — sekcja 2.8: bot Discorda i konta gości; v1.5 — dziennik instalatora, wybór przy odinstalowaniu, wersje angielska
 i czeska; v1.2 — samoobsługowy eksport i usunięcie konta,
 sekcja 2.7: organizacje, znajomi i widoczność; v1.1 — sekcja 2.6: monitor `Game.log`). Wersja źródłowa: w repo GitHub w pliku
 [`PRIVACY.md`](PRIVACY.md)._
